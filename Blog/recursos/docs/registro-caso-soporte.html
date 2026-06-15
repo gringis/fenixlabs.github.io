@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Caso | Fénix Labs</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 32px;
+      font-family: Arial, sans-serif;
+      color: #172033;
+      background: #f6f8fb;
+    }
+
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 32px;
+      border: 1px solid #d9e1ee;
+      border-radius: 18px;
+      background: #ffffff;
+    }
+
+    h1 {
+      margin-top: 0;
+      color: #0f172a;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin: 22px 0;
+    }
+
+    .field {
+      min-height: 70px;
+      padding: 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      background: #f8fafc;
+    }
+
+    .field strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #0f172a;
+    }
+
+    .wide {
+      grid-column: 1 / -1;
+      min-height: 120px;
+    }
+
+    @media (max-width: 700px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+      }
+
+      main {
+        border: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Registro de caso de soporte técnico</h1>
+    <p>Formato para dar seguimiento a incidentes técnicos dentro del proyecto académico Fénix Labs.</p>
+
+    <section class="grid">
+      <div class="field"><strong>Número de caso</strong></div>
+      <div class="field"><strong>Prioridad</strong>Baja / Media / Alta</div>
+      <div class="field"><strong>Nombre del solicitante</strong></div>
+      <div class="field"><strong>Fecha de apertura</strong></div>
+      <div class="field wide"><strong>Problema reportado</strong></div>
+      <div class="field wide"><strong>Diagnóstico</strong></div>
+      <div class="field wide"><strong>Solución aplicada</strong></div>
+      <div class="field"><strong>Estado</strong>Abierto / En proceso / Cerrado</div>
+      <div class="field"><strong>Fecha de cierre</strong></div>
+    </section>
+  </main>
+</body>
+</html>

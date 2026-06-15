@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Protocolo de Soporte Remoto | Fénix Labs</title>
+
+  <meta name="description" content="Entrada 4 del blog académico de Fénix Labs: protocolo, diagrama de flujo y documentos de apoyo para brindar soporte técnico remoto." />
+  <meta name="theme-color" content="#070b14">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../../recursos/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../recursos/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../recursos/icons/favicon-16x16.png">
+  <link rel="manifest" href="../../recursos/icons/site.webmanifest">
+
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/animations.css">
+  <link rel="stylesheet" href="../../assets/css/comments.css">
+</head>
+
+<body>
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <header class="site-header">
+    <nav class="navbar">
+      <a href="../../index.html" class="logo">
+        <img src="../../recursos/logos/fenixlabs-logo.png" alt="Logo de Fénix Labs">
+        <span>Fénix Labs</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../../index.html">Inicio</a></li>
+        <li><a href="../pagina principal/empresa.html">Empresa</a></li>
+        <li><a href="../pagina principal/servicios.html">Servicios</a></li>
+        <li><a href="../pagina principal/Blog.html">Blog</a></li>
+        <li><a href="../pagina principal/FAQ.html">FAQ</a></li>
+        <li><a href="../pagina principal/contacto.html" class="nav-cta">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="article-hero section">
+      <div class="article-hero-content">
+        <a href="../pagina principal/Blog.html" class="back-link">← Volver al blog</a>
+
+        <span class="eyebrow">Entrada 4 · Protocolo remoto</span>
+
+        <h1>
+          Protocolo para brindar
+          <span>soporte técnico remoto</span>
+        </h1>
+
+        <p>
+          Esta entrada documenta el procedimiento que Fénix Labs seguiría para
+          recibir, diagnosticar, atender y cerrar una solicitud de soporte técnico
+          a distancia dentro del proyecto académico.
+        </p>
+
+        <div class="article-meta">
+          <span>Autor: Equipo Fénix Labs</span>
+          <span>Entrada 4 de 7</span>
+          <span>Tiempo de lectura: 7 min</span>
+        </div>
+      </div>
+
+      <div class="article-cover">
+        <div class="cover-glow"></div>
+        <img src="../../recursos/img/blog/entrada4.webp" alt="Portada del protocolo y flujo de soporte remoto" width="1600" height="1000">
+      </div>
+    </section>
+
+    <section class="article-layout section">
+      <aside class="article-sidebar">
+        <h2>Contenido</h2>
+        <a href="#objetivo">Objetivo</a>
+        <a href="#protocolo">Protocolo</a>
+        <a href="#diagrama">Diagrama de flujo</a>
+        <a href="#documentos">Documentos de apoyo</a>
+        <a href="#roles">Roles</a>
+        <a href="#cierre">Cierre del caso</a>
+        <a href="#etiquetas">Etiquetas</a>
+        <a href="#fuentes">Fuentes consultadas</a>
+      </aside>
+
+      <article class="article-content">
+        <section id="objetivo">
+          <h2>Objetivo del protocolo</h2>
+
+          <p>
+            El protocolo de soporte remoto establece una ruta ordenada para atender
+            problemas técnicos sin improvisar. Su objetivo es cuidar la comunicación,
+            la privacidad del usuario y la documentación de cada caso.
+          </p>
+
+          <p>
+            En Fénix Labs, este protocolo se presenta como parte de una empresa
+            ficticia con fines académicos. No representa un servicio real, pero sí
+            muestra buenas prácticas aplicables al soporte técnico a distancia.
+          </p>
+
+          <blockquote>
+            Un protocolo claro permite que el técnico sepa qué hacer, el usuario
+            sepa qué esperar y el caso quede documentado correctamente.
+          </blockquote>
+        </section>
+
+        <section id="protocolo">
+          <h2>Protocolo paso a paso</h2>
+
+          <div class="service-list">
+            <article>
+              <h3>1. Recepción del caso</h3>
+              <p>El usuario reporta su problema por llamada, chat, correo o formulario de contacto.</p>
+            </article>
+
+            <article>
+              <h3>2. Registro inicial</h3>
+              <p>Se anotan datos básicos, equipo afectado, síntomas y canal de comunicación.</p>
+            </article>
+
+            <article>
+              <h3>3. Diagnóstico preliminar</h3>
+              <p>El técnico hace preguntas para identificar causas probables antes de intervenir.</p>
+            </article>
+
+            <article>
+              <h3>4. Autorización del usuario</h3>
+              <p>Si se requiere acceso remoto, el usuario debe autorizarlo de forma clara.</p>
+            </article>
+
+            <article>
+              <h3>5. Aplicación de la solución</h3>
+              <p>Se revisa únicamente lo relacionado con el problema reportado y se explican los cambios.</p>
+            </article>
+
+            <article>
+              <h3>6. Verificación y cierre</h3>
+              <p>Se confirma el resultado, se registra la atención y se dan recomendaciones.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="diagrama">
+          <h2>Diagrama de flujo del soporte remoto</h2>
+
+          <p>
+            El diagrama de flujo representa el proceso de soporte técnico para
+            mantenimiento preventivo a distancia y remoto. Inicia con la recepción
+            de una solicitud o programación de mantenimiento, después verifica si
+            existe conexión remota y, según el caso, divide la atención en una
+            ruta técnica o una ruta de asesoría.
+          </p>
+
+          <div class="doc-preview">
+            <img
+              src="../../recursos/docs/diagrama-flujo-soporte-remoto.jpeg"
+              alt="Diagrama de flujo de soporte técnico remoto y mantenimiento preventivo">
+          </div>
+
+          <p>
+            En la ruta <strong>técnica</strong>, primero se valida si existe acceso
+            remoto al equipo. Si el acceso está disponible, se revisa el estado
+            general del sistema, se actualiza el sistema operativo y se realiza un
+            escaneo antivirus y antimalware. Si no hay acceso remoto, se revisa si
+            es posible actualizar programas y controladores; cuando no se puede,
+            se genera un reporte.
+          </p>
+
+          <p>
+            En la ruta de <strong>asesoría</strong>, el flujo identifica si el caso
+            requiere mantenimiento correctivo presencial. Si es necesario, se
+            contempla la reparación o reemplazo de componentes. Si no requiere
+            esa intervención, se hacen pruebas de funcionamiento; si fallan, se
+            corrige software o configuración y se documenta la reparación. Si las
+            pruebas son correctas, el equipo se entrega al usuario.
+          </p>
+
+          <div class="data-grid">
+            <div class="data-card"><span>Inicio</span><strong>Recepción de solicitud o programación de mantenimiento.</strong></div>
+            <div class="data-card"><span>Validación</span><strong>Verificación de conexión remota antes de intervenir.</strong></div>
+            <div class="data-card"><span>Ruta técnica</span><strong>Revisión del sistema, actualizaciones, escaneo y reporte.</strong></div>
+            <div class="data-card"><span>Ruta de asesoría</span><strong>Pruebas, corrección, reparación presencial o entrega del equipo.</strong></div>
+          </div>
+        </section>
+
+        <section id="documentos">
+          <h2>Documentos de apoyo en la carpeta docs</h2>
+
+          <p>
+            Esta entrada utiliza la carpeta <strong>recursos/docs</strong> para
+            guardar evidencias y formatos relacionados con el soporte remoto.
+            Estos documentos pueden reemplazarse más adelante por trabajos reales
+            en PDF, Word o imágenes, conservando la misma idea de organización.
+          </p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Documento</th>
+                <th>Uso dentro del protocolo</th>
+                <th>Enlace</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Hoja de servicio</td>
+                <td>Registra datos del usuario, problema, diagnóstico y resultado.</td>
+                <td><a href="#preview-hoja-servicio">Ver abajo</a></td>
+              </tr>
+              <tr>
+                <td>Registro de caso</td>
+                <td>Permite dar seguimiento al estado y cierre de una atención.</td>
+                <td><a href="#preview-registro-caso">Ver abajo</a></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="doc-preview-list">
+            <article id="preview-hoja-servicio">
+              <h3>Vista de la hoja de servicio</h3>
+              <div class="doc-preview">
+                <iframe
+                  src="../../recursos/docs/hoja-servicio-soporte-remoto.html"
+                  title="Vista de la hoja de servicio de soporte remoto">
+                </iframe>
+              </div>
+            </article>
+
+            <article id="preview-registro-caso">
+              <h3>Vista del registro de caso</h3>
+              <div class="doc-preview">
+                <iframe
+                  src="../../recursos/docs/registro-caso-soporte.html"
+                  title="Vista del registro de caso de soporte técnico">
+                </iframe>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="roles">
+          <h2>Roles durante la atención</h2>
+
+          <p>
+            Para que el protocolo funcione, cada participante debe saber qué le
+            corresponde hacer durante la atención.
+          </p>
+
+          <div class="data-grid">
+            <div class="data-card">
+              <span>Técnico</span>
+              <strong>Diagnostica, explica, solicita autorización y documenta el caso.</strong>
+            </div>
+            <div class="data-card">
+              <span>Usuario</span>
+              <strong>Describe la falla, autoriza acciones y confirma si el problema se resolvió.</strong>
+            </div>
+            <div class="data-card">
+              <span>Supervisor académico</span>
+              <strong>Revisa que el procedimiento sea claro, respetuoso y completo.</strong>
+            </div>
+            <div class="data-card">
+              <span>Documentación</span>
+              <strong>Guarda evidencia del proceso, resultados y recomendaciones.</strong>
+            </div>
+          </div>
+        </section>
+
+        <section id="cierre">
+          <h2>Cierre y seguimiento del caso</h2>
+
+          <p>
+            El cierre no debe limitarse a decir que el problema terminó. También
+            debe verificar que el usuario comprendió la solución y que se dejaron
+            recomendaciones preventivas.
+          </p>
+
+          <ul>
+            <li>Confirmar con el usuario que la falla fue resuelta.</li>
+            <li>Registrar las acciones realizadas durante el soporte.</li>
+            <li>Indicar si el caso requiere seguimiento posterior.</li>
+            <li>Recomendar medidas para evitar que el problema se repita.</li>
+            <li>Cerrar cualquier sesión remota abierta durante la atención.</li>
+          </ul>
+        </section>
+
+        <section id="etiquetas">
+          <h2>Etiquetas de la entrada</h2>
+
+          <div class="tag-list">
+            <span>Protocolo remoto</span>
+            <span>Diagrama de flujo</span>
+            <span>Hoja de servicio</span>
+            <span>Registro de caso</span>
+            <span>Soporte a distancia</span>
+            <span>Proyecto académico</span>
+          </div>
+        </section>
+
+        <section id="fuentes">
+          <h2>Fuentes consultadas</h2>
+
+          <p>
+            Para complementar esta entrada se consultaron recursos relacionados
+            con soporte remoto, documentación de casos y buenas prácticas de
+            atención técnica:
+          </p>
+
+          <ul>
+            <li>
+              <a href="https://support.microsoft.com/" target="_blank" rel="noopener noreferrer">
+                Microsoft Support - Centro de soporte
+              </a>
+            </li>
+            <li>
+              <a href="https://www.teamviewer.com/" target="_blank" rel="noopener noreferrer">
+                TeamViewer - Acceso remoto
+              </a>
+            </li>
+            <li>
+              <a href="https://www.atlassian.com/itsm/incident-management" target="_blank" rel="noopener noreferrer">
+                Atlassian - Gestión de incidentes
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="article-navigation">
+          <a href="entrada3.html" class="btn btn-secondary">Entrada anterior</a>
+          <a href="entrada5.html" class="btn btn-primary">Siguiente entrada</a>
+        </section>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <strong>Fénix Labs</strong>
+      <p>Blog académico sobre soporte técnico remoto y presencial.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="../../index.html">Inicio</a>
+      <a href="../pagina principal/servicios.html">Servicios</a>
+      <a href="../pagina principal/Blog.html">Blog</a>
+      <a href="../pagina principal/contacto.html">Contacto</a>
+    </div>
+
+    <p class="copyright">© 2026 Fénix Labs. Proyecto académico.</p>
+  </footer>
+
+  <script src="../../assets/js/particles.js"></script>
+  <script src="../../assets/js/animations.js"></script>
+  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/comments.js"></script>
+</body>
+</html>

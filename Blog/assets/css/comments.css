@@ -1,0 +1,244 @@
+.comments-section {
+  padding-top: 42px;
+  border-top: 1px solid var(--line);
+}
+
+.comments-header {
+  margin-bottom: 22px;
+}
+
+.comments-header h2 {
+  margin-bottom: 10px;
+}
+
+.comments-header p,
+.comments-empty {
+  color: var(--muted);
+}
+
+.comment-form {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.comment-form label {
+  display: grid;
+  gap: 8px;
+  color: var(--muted-strong);
+  font-weight: 800;
+}
+
+.comment-form input,
+.comment-form textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(2, 6, 23, 0.64);
+  color: var(--text);
+  padding: 14px 16px;
+  font: inherit;
+  outline: none;
+}
+
+.comment-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.comment-form input:focus,
+.comment-form textarea:focus {
+  border-color: rgba(6, 182, 212, 0.6);
+  box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.1);
+}
+
+.comment-form .btn {
+  width: fit-content;
+}
+
+.comments-list {
+  display: grid;
+  gap: 14px;
+}
+
+.comment-card {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.comment-card div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.comment-card strong {
+  color: var(--text);
+}
+
+.comment-card span {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.comment-card p {
+  margin-bottom: 14px;
+  color: var(--muted-strong);
+  overflow-wrap: anywhere;
+}
+
+.comment-delete {
+  border: 1px solid rgba(249, 115, 22, 0.35);
+  border-radius: 999px;
+  background: rgba(249, 115, 22, 0.1);
+  color: var(--orange);
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.comments-page-section {
+  padding-top: 40px;
+}
+
+.comments-page-section.comments-section,
+.comments-page-section .comments-section {
+  border-top: 1px solid var(--line);
+}
+
+.comment-card {
+  animation: commentIn 0.42s ease both;
+}
+
+.comment-card-seeded {
+  border-color: rgba(6, 182, 212, 0.24);
+}
+
+.faq-comment-preview {
+  padding-top: 34px;
+}
+
+.faq-comment-preview .section-header {
+  margin-bottom: 24px;
+}
+
+.faq-comment-card {
+  min-height: 190px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background:
+    radial-gradient(circle at top right, rgba(6, 182, 212, 0.18), transparent 38%),
+    rgba(15, 23, 42, 0.72);
+  box-shadow: var(--shadow-soft);
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.28s ease,
+    transform 0.28s ease;
+}
+
+.faq-comment-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.faq-comment-card div {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.faq-comment-card strong {
+  color: var(--text);
+  font-size: 1.08rem;
+}
+
+.faq-comment-card span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.faq-comment-card p {
+  max-width: 780px;
+  color: var(--muted-strong);
+  font-size: 1.08rem;
+}
+
+.faq-comment-controls {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: center;
+  margin-top: 16px;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.faq-comment-progress-track {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.16);
+}
+
+.faq-comment-progress {
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--gradient-main);
+}
+
+.faq-comment-progress.is-running {
+  animation: commentProgress 6.2s linear forwards;
+}
+
+@keyframes commentIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes commentProgress {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  .comment-form .btn {
+    width: 100%;
+  }
+
+  .comment-card div {
+    display: grid;
+  }
+
+  .faq-comment-card {
+    min-height: 220px;
+    padding: 22px;
+  }
+
+  .faq-comment-card div,
+  .faq-comment-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .faq-comment-card div {
+    display: grid;
+  }
+}

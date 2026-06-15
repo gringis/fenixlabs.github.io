@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Equipo | Fénix Labs</title>
+  <meta name="description" content="Integrantes del equipo Fénix Labs para el proyecto académico de soporte técnico." />
+  <meta name="theme-color" content="#070b14">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../recursos/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../recursos/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../recursos/icons/favicon-16x16.png">
+  <link rel="manifest" href="../../recursos/icons/site.webmanifest">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/animations.css">
+</head>
+<body>
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <header class="site-header">
+    <nav class="navbar">
+      <a href="../../index.html" class="logo">
+        <img src="../../recursos/logos/fenixlabs-logo.png" alt="Logo de Fénix Labs">
+        <span>Fénix Labs</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../../index.html">Inicio</a></li>
+        <li><a href="../pagina principal/empresa.html">Empresa</a></li>
+        <li><a href="../pagina principal/servicios.html">Servicios</a></li>
+        <li><a href="../pagina principal/Blog.html">Blog</a></li>
+        <li><a href="../pagina principal/FAQ.html">FAQ</a></li>
+        <li><a href="../pagina principal/contacto.html" class="nav-cta">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="team-select section">
+      <div class="team-select-top">
+        <a href="entrada1.html#datos-academicos" class="back-link">← Volver a entrada 1</a>
+        <span class="eyebrow">Fénix Labs roster</span>
+      </div>
+
+      <div class="team-select-stage" aria-live="polite">
+        <div class="team-selected-character">
+          <div class="team-selected-backdrop" aria-hidden="true"></div>
+          <img
+            data-selected-image
+            src="../../recursos/img/integrantes/integrante1.webp"
+            alt="Foto de Iker Prado">
+        </div>
+
+        <article class="team-selected-panel">
+          <span data-selected-number>Player 01</span>
+          <h2 data-selected-name>Iker Prado</h2>
+          <strong data-selected-role>Desarrollador Web</strong>
+          <p data-selected-description>
+            Encargado de la estructura del blog, navegación, diseño general y desarrollo de páginas.
+          </p>
+
+          <div class="team-selected-almanac">
+            <dl>
+              <div><dt>Nombre completo</dt><dd data-selected-fullname>Iker Prado</dd></div>
+              <div><dt>Grado y grupo</dt><dd data-selected-group>4° E</dd></div>
+              <div><dt>Área principal</dt><dd data-selected-area>Desarrollo del sitio web</dd></div>
+              <div><dt>Aportes</dt><dd data-selected-contribution>Estructura HTML, navegación, organización visual, páginas principales y entradas del blog.</dd></div>
+            </dl>
+          </div>
+
+          <div class="team-selected-meter" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i>
+          </div>
+        </article>
+      </div>
+
+      <section class="team-roster" aria-label="Seleccionar integrante">
+        <button class="team-token is-selected" type="button" data-member
+          data-number="Player 01"
+          data-name="Iker Prado"
+          data-role="Desarrollador Web"
+          data-image="../../recursos/img/integrantes/integrante1.webp"
+          data-description="Encargado de la estructura del blog, navegación, diseño general y desarrollo de páginas."
+          data-fullname="Iker Prado"
+          data-group="4° E"
+          data-area="Desarrollo del sitio web"
+          data-contribution="Estructura HTML, navegación, organización visual, páginas principales y entradas del blog.">
+          <img src="../../recursos/img/integrantes/integrante1.webp" alt="Foto de Iker Prado">
+          <div><span>01</span><strong>Iker Prado</strong><small>Desarrollo web</small></div>
+        </button>
+
+        <button class="team-token" type="button" data-member
+          data-number="Player 02"
+          data-name="Ernesto Vazquez"
+          data-role="Investigación"
+          data-image="../../recursos/img/integrantes/integrante2.webp"
+          data-description="Responsable de recopilar información, organizar fuentes consultadas y apoyar en la redacción académica."
+          data-fullname="Ernesto Vazquez"
+          data-group="4° E"
+          data-area="Investigación y fuentes"
+          data-contribution="Búsqueda de información, organización de fuentes consultadas, apoyo en redacción académica y revisión de contenido.">
+          <img src="../../recursos/img/integrantes/integrante2.webp" alt="Foto de Ernesto Vazquez">
+          <div><span>02</span><strong>Ernesto Vazquez</strong><small>Investigación</small></div>
+        </button>
+
+        <button class="team-token" type="button" data-member
+          data-number="Player 03"
+          data-name="Jaime Avendaño"
+          data-role="Diseño Visual"
+          data-image="../../recursos/img/integrantes/integrante3.webp"
+          data-description="Apoya en selección de imágenes, colores, coherencia gráfica y presentación visual del proyecto."
+          data-fullname="Jaime Avendaño"
+          data-group="4° E"
+          data-area="Diseño visual"
+          data-contribution="Selección de imágenes, apoyo en colores, coherencia gráfica, presentación visual y orden estético del blog.">
+          <img src="../../recursos/img/integrantes/integrante3.webp" alt="Foto de Jaime Avendaño">
+          <div><span>03</span><strong>Jaime Avendaño</strong><small>Diseño visual</small></div>
+        </button>
+
+        <button class="team-token" type="button" data-member
+          data-number="Player 04"
+          data-name="Victor Pineda"
+          data-role="Revisión Final"
+          data-image="../../recursos/img/integrantes/integrante4.webp"
+          data-description="Verifica contenido, ortografía, enlaces y consistencia antes de la entrega final."
+          data-fullname="Victor Pineda"
+          data-group="4° E"
+          data-area="Revisión final"
+          data-contribution="Revisión de ortografía, pruebas de enlaces, verificación de contenido y consistencia antes de la entrega.">
+          <img src="../../recursos/img/integrantes/integrante4.webp" alt="Foto de Victor Pineda">
+          <div><span>04</span><strong>Victor Pineda</strong><small>Revisión final</small></div>
+        </button>
+
+        <button class="team-token" type="button" data-member
+          data-number="Player 05"
+          data-name="Axel Barragan"
+          data-role="Apoyo Documental"
+          data-image="../../recursos/img/integrantes/integrante5.webp"
+          data-description="Apoya con evidencias, documentos, capturas, organización de recursos y revisión de materiales."
+          data-fullname="Axel Barragan"
+          data-group="4° E"
+          data-area="Apoyo documental"
+          data-contribution="Organización de evidencias, documentos, capturas, recursos de apoyo y revisión de materiales para anexos.">
+          <span class="team-token-placeholder">05</span>
+          <img src="../../recursos/img/integrantes/integrante5.webp" alt="Foto de Axel Barragan" onload="this.previousElementSibling.style.display='none'" onerror="this.style.display='none'">
+          <div><span>05</span><strong>Axel Barragan</strong><small>Apoyo documental</small></div>
+        </button>
+      </section>
+
+      <div class="team-select-actions">
+        <a href="entrada1.html#datos-academicos" class="btn btn-secondary">Volver a entrada 1</a>
+        <a href="../pagina principal/Blog.html" class="btn btn-primary">Volver al blog</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <strong>Fénix Labs</strong>
+      <p>Blog académico sobre soporte técnico remoto y presencial.</p>
+    </div>
+    <div class="footer-links">
+      <a href="../../index.html">Inicio</a>
+      <a href="../pagina principal/servicios.html">Servicios</a>
+      <a href="../pagina principal/Blog.html">Blog</a>
+      <a href="../pagina principal/contacto.html">Contacto</a>
+    </div>
+    <p class="copyright">© 2026 Fénix Labs. Proyecto académico.</p>
+  </footer>
+
+  <script src="../../assets/js/particles.js"></script>
+  <script src="../../assets/js/animations.js"></script>
+  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/team-select.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagrama de Flujo de Soporte Remoto | Fénix Labs</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 32px;
+      font-family: Arial, sans-serif;
+      color: #172033;
+      background: #f6f8fb;
+      line-height: 1.5;
+    }
+
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 32px;
+      border: 1px solid #d9e1ee;
+      border-radius: 18px;
+      background: #ffffff;
+    }
+
+    h1 {
+      margin-top: 0;
+      color: #0f172a;
+    }
+
+    .flow {
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .step {
+      padding: 18px;
+      border: 1px solid #cbd5e1;
+      border-left: 6px solid #06b6d4;
+      border-radius: 12px;
+      background: #f8fafc;
+    }
+
+    .decision {
+      border-left-color: #f97316;
+      background: #fff7ed;
+    }
+
+    strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #020617;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+      }
+
+      main {
+        border: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Diagrama de flujo para soporte remoto</h1>
+    <p>
+      Documento de apoyo del proyecto académico Fénix Labs. Representa el proceso
+      sugerido para atender una solicitud de soporte técnico a distancia.
+    </p>
+
+    <section class="flow" aria-label="Flujo de soporte remoto">
+      <div class="step"><strong>1. Recepción del caso</strong>El usuario reporta la falla por llamada, chat o correo.</div>
+      <div class="step"><strong>2. Registro inicial</strong>Se anotan datos del usuario, equipo, problema y canal de contacto.</div>
+      <div class="step"><strong>3. Diagnóstico preliminar</strong>El técnico hace preguntas para identificar síntomas y posibles causas.</div>
+      <div class="step decision"><strong>4. ¿Se puede resolver por orientación?</strong>Si el problema es sencillo, se guía al usuario paso a paso.</div>
+      <div class="step decision"><strong>5. ¿Requiere acceso remoto?</strong>Si es necesario, se solicita autorización clara del usuario.</div>
+      <div class="step"><strong>6. Aplicación de solución</strong>Se revisa únicamente lo relacionado con la falla reportada.</div>
+      <div class="step decision"><strong>7. ¿El problema quedó resuelto?</strong>Si no se resuelve, se escala a soporte presencial o revisión adicional.</div>
+      <div class="step"><strong>8. Cierre del caso</strong>Se confirma el resultado, se registran acciones y se dan recomendaciones.</div>
+    </section>
+  </main>
+</body>
+</html>

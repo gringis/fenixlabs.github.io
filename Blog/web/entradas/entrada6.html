@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Herramientas de Soporte Remoto | Fénix Labs</title>
+  <meta name="description" content="Entrada 6 del blog académico de Fénix Labs: comparativa de herramientas para soporte remoto como TeamViewer, AnyDesk, Supremo, RustDesk y Chrome Remote Desktop." />
+  <meta name="theme-color" content="#070b14">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../../recursos/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../recursos/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../recursos/icons/favicon-16x16.png">
+  <link rel="manifest" href="../../recursos/icons/site.webmanifest">
+
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/animations.css">
+  <link rel="stylesheet" href="../../assets/css/comments.css">
+</head>
+
+<body>
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <header class="site-header">
+    <nav class="navbar">
+      <a href="../../index.html" class="logo">
+        <img src="../../recursos/logos/fenixlabs-logo.png" alt="Logo de Fénix Labs">
+        <span>Fénix Labs</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../../index.html">Inicio</a></li>
+        <li><a href="../pagina principal/empresa.html">Empresa</a></li>
+        <li><a href="../pagina principal/servicios.html">Servicios</a></li>
+        <li><a href="../pagina principal/Blog.html">Blog</a></li>
+        <li><a href="../pagina principal/FAQ.html">FAQ</a></li>
+        <li><a href="../pagina principal/contacto.html" class="nav-cta">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="article-hero section">
+      <div class="article-hero-content">
+        <a href="../pagina principal/Blog.html" class="back-link">← Volver al blog</a>
+        <span class="eyebrow">Entrada 6 · Herramientas remotas</span>
+        <h1>
+          Herramientas para
+          <span>soporte remoto</span>
+        </h1>
+        <p>
+          Comparativa académica de aplicaciones que permiten conectarse a otro
+          equipo, brindar asistencia a distancia y documentar un caso de soporte.
+        </p>
+        <div class="article-meta">
+          <span>Autor: Equipo Fénix Labs</span>
+          <span>Entrada 6 de 7</span>
+          <span>Tiempo de lectura: 7 min</span>
+        </div>
+      </div>
+
+      <div class="article-cover">
+        <div class="cover-glow"></div>
+        <img src="../../recursos/img/blog/entrada6.webp" alt="Portada sobre herramientas de soporte remoto" width="1600" height="1000">
+      </div>
+    </section>
+
+    <section class="article-layout section">
+      <aside class="article-sidebar">
+        <h2>Contenido</h2>
+        <a href="#objetivo">Objetivo</a>
+        <a href="#criterios">Criterios</a>
+        <a href="#comparativa">Comparativa</a>
+        <a href="#recomendaciones">Recomendaciones</a>
+        <a href="#seguridad">Seguridad</a>
+        <a href="#seleccion">Selección para Fénix Labs</a>
+        <a href="#etiquetas">Etiquetas</a>
+        <a href="#fuentes">Fuentes consultadas</a>
+      </aside>
+
+      <article class="article-content">
+        <section id="objetivo">
+          <h2>Objetivo de la entrada</h2>
+          <p>
+            El soporte remoto necesita herramientas que permitan ver o controlar
+            un equipo con autorización del usuario. Elegir una aplicación adecuada
+            ayuda a resolver problemas con mayor rapidez y reduce errores durante
+            la atención.
+          </p>
+          <p>
+            Esta entrada compara varias opciones conocidas para analizar su uso
+            dentro de un proyecto académico de soporte técnico.
+          </p>
+        </section>
+
+        <section id="criterios">
+          <h2>Criterios de evaluación</h2>
+          <p>
+            Para comparar herramientas de acceso remoto, Fénix Labs considera
+            cuatro aspectos básicos: facilidad de uso, seguridad, compatibilidad y
+            utilidad para documentar un caso.
+          </p>
+
+          <div class="data-grid">
+            <div class="data-card"><span>Facilidad</span><strong>Que el usuario pueda iniciar la conexión sin pasos confusos.</strong></div>
+            <div class="data-card"><span>Seguridad</span><strong>Que use autorización, códigos de acceso y cierre de sesión claro.</strong></div>
+            <div class="data-card"><span>Compatibilidad</span><strong>Que funcione en los sistemas más comunes.</strong></div>
+            <div class="data-card"><span>Evidencia</span><strong>Que permita registrar datos del caso sin exponer información privada.</strong></div>
+          </div>
+        </section>
+
+        <section id="comparativa">
+          <h2>Comparativa de herramientas</h2>
+          <p>
+            La siguiente tabla resume ventajas y precauciones de herramientas
+            populares para soporte remoto.
+          </p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Herramienta</th>
+                <th>Ventajas</th>
+                <th>Precauciones</th>
+                <th>Uso recomendado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>TeamViewer</td>
+                <td>Muy conocida, multiplataforma y orientada a soporte.</td>
+                <td>Revisar condiciones de uso y permisos antes de conectar.</td>
+                <td>Atención remota guiada con autorización del usuario.</td>
+              </tr>
+              <tr>
+                <td>AnyDesk</td>
+                <td>Ligera, rápida y sencilla para sesiones remotas.</td>
+                <td>Evitar accesos permanentes si no son necesarios.</td>
+                <td>Diagnósticos rápidos y asistencia básica a distancia.</td>
+              </tr>
+              <tr>
+                <td>Supremo</td>
+                <td>Interfaz simple y enfoque directo en asistencia remota.</td>
+                <td>Confirmar identidad del técnico antes de compartir acceso.</td>
+                <td>Soporte temporal con instrucciones claras.</td>
+              </tr>
+              <tr>
+                <td>RustDesk</td>
+                <td>Opción flexible y de código abierto.</td>
+                <td>Requiere comprender bien la configuración para usarla de forma segura.</td>
+                <td>Prácticas académicas y entornos controlados.</td>
+              </tr>
+              <tr>
+                <td>Chrome Remote Desktop</td>
+                <td>Funciona desde el ecosistema de Google y es accesible.</td>
+                <td>Depende de cuenta y navegador compatible.</td>
+                <td>Apoyo básico cuando el usuario ya usa Chrome.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="recomendaciones">
+          <h2>Recomendaciones de uso</h2>
+          <p>
+            Independientemente de la herramienta elegida, el procedimiento debe
+            respetar el protocolo de Fénix Labs: explicar, pedir autorización,
+            intervenir solo lo necesario y cerrar la sesión al finalizar.
+          </p>
+
+          <ul>
+            <li>Usar solo herramientas descargadas desde sitios oficiales.</li>
+            <li>Comprobar que el usuario entiende qué permiso está otorgando.</li>
+            <li>Evitar guardar accesos permanentes en equipos personales.</li>
+            <li>No abrir carpetas, cuentas o archivos que no formen parte del problema.</li>
+            <li>Registrar en la hoja de servicio qué herramienta se utilizó.</li>
+          </ul>
+        </section>
+
+        <section id="seguridad">
+          <h2>Seguridad durante la conexión remota</h2>
+          <p>
+            El acceso remoto puede ser muy útil, pero también requiere cuidado. Si
+            se usa sin control, puede exponer archivos o configuraciones del
+            usuario. Por eso, Fénix Labs define pasos mínimos de seguridad.
+          </p>
+
+          <div class="service-list">
+            <article>
+              <h3>Antes de conectar</h3>
+              <p>Confirmar identidad, explicar la herramienta y pedir autorización explícita.</p>
+            </article>
+            <article>
+              <h3>Durante la sesión</h3>
+              <p>Mantener comunicación constante y explicar cada acción realizada.</p>
+            </article>
+            <article>
+              <h3>Después del soporte</h3>
+              <p>Cerrar la sesión, recomendar cambiar códigos temporales y registrar el caso.</p>
+            </article>
+            <article>
+              <h3>Documentación</h3>
+              <p>Guardar solo evidencias necesarias y evitar datos privados en capturas.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="seleccion">
+          <h2>Selección para Fénix Labs</h2>
+          <p>
+            Para el proyecto académico, la herramienta ideal depende del contexto.
+            Si el usuario necesita algo simple, AnyDesk o Chrome Remote Desktop
+            pueden ser suficientes. Si se requiere una herramienta más completa,
+            TeamViewer puede servir para explicar un entorno profesional. RustDesk
+            se considera útil para hablar de alternativas abiertas.
+          </p>
+          <blockquote>
+            La mejor herramienta no es solo la que conecta más rápido, sino la que
+            permite trabajar con autorización, claridad y seguridad.
+          </blockquote>
+        </section>
+
+        <section id="etiquetas">
+          <h2>Etiquetas de la entrada</h2>
+          <div class="tag-list">
+            <span>Acceso remoto</span>
+            <span>TeamViewer</span>
+            <span>AnyDesk</span>
+            <span>RustDesk</span>
+            <span>Seguridad</span>
+            <span>Soporte técnico</span>
+          </div>
+        </section>
+
+        <section id="fuentes">
+          <h2>Fuentes consultadas</h2>
+          <ul>
+            <li><a href="https://www.teamviewer.com/" target="_blank" rel="noopener noreferrer">TeamViewer - Sitio oficial</a></li>
+            <li><a href="https://anydesk.com/" target="_blank" rel="noopener noreferrer">AnyDesk - Sitio oficial</a></li>
+            <li><a href="https://www.supremocontrol.com/" target="_blank" rel="noopener noreferrer">Supremo - Sitio oficial</a></li>
+            <li><a href="https://rustdesk.com/" target="_blank" rel="noopener noreferrer">RustDesk - Sitio oficial</a></li>
+            <li><a href="https://remotedesktop.google.com/" target="_blank" rel="noopener noreferrer">Chrome Remote Desktop</a></li>
+          </ul>
+        </section>
+
+        <section class="article-navigation">
+          <a href="entrada5.html" class="btn btn-secondary">Entrada anterior</a>
+          <a href="entrada7.html" class="btn btn-primary">Siguiente entrada</a>
+        </section>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <strong>Fénix Labs</strong>
+      <p>Blog académico sobre soporte técnico remoto y presencial.</p>
+    </div>
+    <div class="footer-links">
+      <a href="../../index.html">Inicio</a>
+      <a href="../pagina principal/servicios.html">Servicios</a>
+      <a href="../pagina principal/Blog.html">Blog</a>
+      <a href="../pagina principal/contacto.html">Contacto</a>
+    </div>
+    <p class="copyright">© 2026 Fénix Labs. Proyecto académico.</p>
+  </footer>
+
+  <script src="../../assets/js/particles.js"></script>
+  <script src="../../assets/js/animations.js"></script>
+  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/comments.js"></script>
+</body>
+</html>

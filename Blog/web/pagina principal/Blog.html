@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#070b14">
+
+  <title>Blog | Fénix Labs</title>
+  <meta name="description" content="Sección completa del blog académico de Fénix Labs." />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../../recursos/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../recursos/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../recursos/icons/favicon-16x16.png">
+  <link rel="manifest" href="../../recursos/icons/site.webmanifest">
+
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/animations.css">
+  <link rel="stylesheet" href="../../assets/css/comments.css">
+</head>
+<body class="blog-editorial-page">
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <header class="site-header">
+    <nav class="navbar">
+      <a href="../../index.html" class="logo">
+        <img src="../../recursos/logos/fenixlabs-logo.png" alt="Logo de Fénix Labs">
+        <span>Fénix Labs</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../../index.html">Inicio</a></li>
+        <li><a href="empresa.html">Empresa</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="Blog.html">Blog</a></li>
+        <li><a href="FAQ.html">FAQ</a></li>
+        <li><a href="contacto.html" class="nav-cta">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="blog-magazine section" id="blog">
+      <div class="blog-editorial-header">
+        <a href="../../index.html" class="back-link">← Volver al inicio</a>
+        <span>Categoría</span>
+        <h1>Blog académico</h1>
+        <p>
+          Entradas del proyecto Fénix Labs organizadas como una revista de soporte
+          técnico: identidad, normas, políticas, protocolos, documentos, herramientas
+          y atención presencial.
+        </p>
+      </div>
+
+      <div class="blog-masonry">
+        <a class="blog-issue" href="../entradas/entrada1.html">
+          <div class="blog-issue-media has-image">
+            <img src="../../recursos/img/blog/entrada1.webp" alt="Portada tecnológica de la presentación del proyecto Fénix Labs" width="1600" height="1000" fetchpriority="high">
+          </div>
+          <small>Entrada 01</small>
+          <h2>Presentación del proyecto</h2>
+          <p>Datos académicos, identidad, slogan, mascota, redes simuladas y soporte a distancia.</p>
+          <span>Ir al artículo</span>
+        </a>
+
+        <a class="blog-issue" href="../entradas/entrada2.html">
+          <div class="blog-issue-media has-image">
+            <img src="../../recursos/img/blog/entrada2.webp" alt="Portada sobre normas de atención y soporte técnico" width="1600" height="1000" loading="lazy">
+          </div>
+          <small>Entrada 02</small>
+          <h2>Normas de atención</h2>
+          <p>Reglas de conducta para técnicos, clientes y usuarios durante el soporte.</p>
+          <span>Ir al artículo</span>
+        </a>
+
+        <a class="blog-issue" href="../entradas/entrada3.html">
+          <div class="blog-issue-media has-image">
+            <img src="../../recursos/img/blog/entrada3.webp" alt="Portada sobre políticas, privacidad y seguridad del soporte" width="1600" height="1000" loading="lazy">
+          </div>
+          <small>Entrada 03</small>
+          <h2>Políticas de soporte</h2>
+          <p>Alcances, límites, privacidad, soporte telefónico y soporte a distancia.</p>
+          <span>Ir al artículo</span>
+        </a>
+
+        <a class="blog-issue" href="../entradas/entrada4.html">
+          <div class="blog-issue-media has-image">
+            <img src="../../recursos/img/blog/entrada4.webp" alt="Portada del protocolo y flujo de soporte remoto" width="1600" height="1000" loading="lazy">
+          </div>
+          <small>Entrada 04</small>
+          <h2>Protocolo remoto</h2>
+          <p>Protocolo, diagrama de flujo, hoja de servicio y registro de caso para soporte remoto.</p>
+          <span>Ir al artículo</span>
+        </a>
+
+        <a class="blog-issue" href="../entradas/entrada5.html">
+          <div class="blog-issue-media has-image">
+            <img src="../../recursos/img/blog/entrada5.webp" alt="Portada sobre contrato informático y confidencialidad" width="1600" height="1000" loading="lazy">
+          </div>
+          <small>Entrada 05</small>
+          <h2>Contrato y confidencialidad</h2>
+          <p>Contrato informático, acuerdo de confidencialidad, responsabilidades y modelo resumido.</p>
+          <span>Ir al artículo</span>
+        </a>
+
+        <a class="blog-issue" href="../entradas/entrada6.html">
+          <div class="blog-issue-media has-image">
+            <img src="../../recursos/img/blog/entrada6.webp" alt="Portada sobre herramientas de soporte remoto" width="1600" height="1000" loading="lazy">
+          </div>
+          <small>Entrada 06</small>
+          <h2>Herramientas remotas</h2>
+          <p>Comparativa de TeamViewer, AnyDesk, Supremo, RustDesk y Chrome Remote Desktop.</p>
+          <span>Ir al artículo</span>
+        </a>
+
+        <a class="blog-issue" href="../entradas/entrada7.html">
+          <div class="blog-issue-media has-image">
+            <img src="../../recursos/img/blog/entrada7.webp" alt="Portada sobre soporte técnico presencial" width="1600" height="1000" loading="lazy">
+          </div>
+          <small>Entrada 07</small>
+          <h2>Soporte presencial</h2>
+          <p>Proceso de mantenimiento, instalación, redes, diagnóstico físico y entrega.</p>
+          <span>Ir al artículo</span>
+        </a>
+
+        <article class="blog-issue blog-status-card">
+          <small>Cotejo</small>
+          <h2>Seguimiento de contenido</h2>
+          <p>Las siete entradas del blog ya están desarrolladas y enlazadas para revisar el proyecto completo.</p>
+          <div>
+            <strong>Entradas 1 a 7</strong>
+            <span>Lista para revisión final, evidencias reales y ajustes de cotejo.</span>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <strong>Fénix Labs</strong>
+      <p>Proyecto académico sobre soporte técnico remoto y presencial.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="../../index.html">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="Blog.html">Blog</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+
+    <p class="copyright">© 2026 Fénix Labs. Proyecto académico.</p>
+  </footer>
+
+  <script src="../../assets/js/particles.js"></script>
+  <script src="../../assets/js/animations.js"></script>
+  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/comments.js"></script>
+</body>
+</html>

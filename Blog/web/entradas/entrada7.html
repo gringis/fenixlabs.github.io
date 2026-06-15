@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Soporte Técnico Presencial | Fénix Labs</title>
+  <meta name="description" content="Entrada 7 del blog académico de Fénix Labs: proceso de soporte técnico presencial, mantenimiento, revisión física, redes e instalación." />
+  <meta name="theme-color" content="#070b14">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../../recursos/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../recursos/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../recursos/icons/favicon-16x16.png">
+  <link rel="manifest" href="../../recursos/icons/site.webmanifest">
+
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/animations.css">
+  <link rel="stylesheet" href="../../assets/css/comments.css">
+</head>
+
+<body>
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <header class="site-header">
+    <nav class="navbar">
+      <a href="../../index.html" class="logo">
+        <img src="../../recursos/logos/fenixlabs-logo.png" alt="Logo de Fénix Labs">
+        <span>Fénix Labs</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../../index.html">Inicio</a></li>
+        <li><a href="../pagina principal/empresa.html">Empresa</a></li>
+        <li><a href="../pagina principal/servicios.html">Servicios</a></li>
+        <li><a href="../pagina principal/Blog.html">Blog</a></li>
+        <li><a href="../pagina principal/FAQ.html">FAQ</a></li>
+        <li><a href="../pagina principal/contacto.html" class="nav-cta">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="article-hero section">
+      <div class="article-hero-content">
+        <a href="../pagina principal/Blog.html" class="back-link">← Volver al blog</a>
+        <span class="eyebrow">Entrada 7 · Soporte presencial</span>
+        <h1>
+          Soporte técnico
+          <span>presencial</span>
+        </h1>
+        <p>
+          Cierre del blog con el proceso de atención presencial: diagnóstico
+          físico, mantenimiento, instalación, redes, entrega y recomendaciones.
+        </p>
+        <div class="article-meta">
+          <span>Autor: Equipo Fénix Labs</span>
+          <span>Entrada 7 de 7</span>
+          <span>Tiempo de lectura: 7 min</span>
+        </div>
+      </div>
+
+      <div class="article-cover">
+        <div class="cover-glow"></div>
+        <img src="../../recursos/img/blog/entrada7.webp" alt="Portada sobre soporte técnico presencial" width="1600" height="1000">
+      </div>
+    </section>
+
+    <section class="article-layout section">
+      <aside class="article-sidebar">
+        <h2>Contenido</h2>
+        <a href="#objetivo">Objetivo</a>
+        <a href="#diferencias">Diferencias</a>
+        <a href="#proceso">Proceso presencial</a>
+        <a href="#actividades">Actividades</a>
+        <a href="#seguridad">Seguridad</a>
+        <a href="#entrega">Entrega</a>
+        <a href="#cierre">Cierre del proyecto</a>
+        <a href="#fuentes">Fuentes consultadas</a>
+      </aside>
+
+      <article class="article-content">
+        <section id="objetivo">
+          <h2>Objetivo del soporte presencial</h2>
+          <p>
+            El soporte presencial se utiliza cuando el problema no puede
+            resolverse por teléfono o a distancia. Permite revisar físicamente el
+            equipo, comprobar conexiones, observar daños, limpiar componentes e
+            instalar o configurar elementos que requieren presencia del técnico.
+          </p>
+          <p>
+            Para Fénix Labs, esta entrada completa el ciclo de atención: después
+            de definir identidad, normas, políticas, protocolo, contrato y
+            herramientas, se presenta la intervención presencial como una opción
+            organizada y documentada.
+          </p>
+        </section>
+
+        <section id="diferencias">
+          <h2>Diferencias entre soporte remoto y presencial</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Aspecto</th>
+                <th>Remoto</th>
+                <th>Presencial</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Forma de atención</td>
+                <td>Por llamada, chat, videollamada o acceso remoto.</td>
+                <td>El técnico revisa el equipo en el lugar.</td>
+              </tr>
+              <tr>
+                <td>Problemas comunes</td>
+                <td>Software, configuración, cuentas, navegación y orientación.</td>
+                <td>Hardware, limpieza, conexiones, instalación física y redes.</td>
+              </tr>
+              <tr>
+                <td>Ventaja</td>
+                <td>Rapidez y comodidad.</td>
+                <td>Diagnóstico directo del estado físico del equipo.</td>
+              </tr>
+              <tr>
+                <td>Límite</td>
+                <td>No permite manipular piezas.</td>
+                <td>Requiere traslado, cita o disponibilidad del espacio.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="proceso">
+          <h2>Proceso de atención presencial</h2>
+          <p>
+            La atención presencial debe seguir un orden para evitar pérdidas de
+            información, daños al equipo o confusión con el usuario.
+          </p>
+
+          <div class="service-list">
+            <article>
+              <h3>1. Recepción del equipo</h3>
+              <p>Registrar datos del usuario, descripción de la falla y estado físico inicial.</p>
+            </article>
+            <article>
+              <h3>2. Diagnóstico visual</h3>
+              <p>Revisar cables, puertos, ventilación, pantalla, teclado, carcasa y accesorios.</p>
+            </article>
+            <article>
+              <h3>3. Pruebas básicas</h3>
+              <p>Encender el equipo, verificar sistema, red, audio, periféricos y rendimiento.</p>
+            </article>
+            <article>
+              <h3>4. Intervención autorizada</h3>
+              <p>Realizar mantenimiento, instalación o configuración solo con aprobación del usuario.</p>
+            </article>
+            <article>
+              <h3>5. Validación</h3>
+              <p>Comprobar que el problema se redujo o resolvió con pruebas de funcionamiento.</p>
+            </article>
+            <article>
+              <h3>6. Entrega</h3>
+              <p>Explicar resultados, recomendaciones y pendientes antes de cerrar el caso.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="actividades">
+          <h2>Actividades que puede cubrir</h2>
+          <p>
+            El soporte presencial no significa reparar todo sin límite. Debe
+            centrarse en actividades acordadas y documentadas.
+          </p>
+
+          <div class="data-grid">
+            <div class="data-card"><span>Mantenimiento</span><strong>Limpieza externa, revisión de ventilación y recomendaciones preventivas.</strong></div>
+            <div class="data-card"><span>Instalación</span><strong>Colocación de periféricos, programas permitidos o componentes autorizados.</strong></div>
+            <div class="data-card"><span>Redes</span><strong>Revisión de cableado, Wi-Fi, módem, router y conexión local.</strong></div>
+            <div class="data-card"><span>Diagnóstico</span><strong>Identificación de fallas físicas o señales de desgaste.</strong></div>
+          </div>
+        </section>
+
+        <section id="seguridad">
+          <h2>Seguridad y cuidado del equipo</h2>
+          <p>
+            El técnico debe cuidar tanto el equipo como el entorno de trabajo. La
+            seguridad evita accidentes, daños y pérdida de información.
+          </p>
+
+          <ul>
+            <li>Apagar y desconectar el equipo cuando la revisión física lo requiera.</li>
+            <li>Evitar manipular componentes internos sin autorización.</li>
+            <li>Usar herramientas adecuadas y mantener ordenado el espacio.</li>
+            <li>No retirar piezas sin registrarlo en la hoja de servicio.</li>
+            <li>Recomendar respaldo de información antes de intervenciones sensibles.</li>
+            <li>Documentar el estado inicial y final del equipo con evidencia permitida.</li>
+          </ul>
+        </section>
+
+        <section id="entrega">
+          <h2>Entrega y recomendaciones</h2>
+          <p>
+            La entrega del equipo debe incluir una explicación breve y clara de lo
+            realizado. El usuario debe saber qué problema se encontró, qué se hizo
+            y qué puede hacer para prevenir fallas futuras.
+          </p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Elemento de entrega</th>
+                <th>Qué debe incluir</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Resumen de diagnóstico</td>
+                <td>Falla reportada, causa probable y pruebas realizadas.</td>
+              </tr>
+              <tr>
+                <td>Acciones aplicadas</td>
+                <td>Mantenimiento, configuración, instalación o corrección realizada.</td>
+              </tr>
+              <tr>
+                <td>Resultado</td>
+                <td>Estado final del equipo y validación con el usuario.</td>
+              </tr>
+              <tr>
+                <td>Recomendaciones</td>
+                <td>Limpieza, respaldos, actualizaciones, cuidado de cables o revisión posterior.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="cierre">
+          <h2>Cierre del proyecto</h2>
+          <p>
+            Con esta entrada, el blog de Fénix Labs integra la atención remota y
+            presencial como partes de un mismo proceso. La propuesta muestra una
+            empresa ficticia organizada, con identidad visual, normas, políticas,
+            documentación, herramientas y procedimientos.
+          </p>
+          <blockquote>
+            El soporte técnico completo no solo resuelve fallas: también comunica,
+            protege datos, documenta evidencias y deja recomendaciones útiles.
+          </blockquote>
+          <div class="tag-list">
+            <span>Soporte presencial</span>
+            <span>Mantenimiento</span>
+            <span>Redes</span>
+            <span>Instalación</span>
+            <span>Diagnóstico físico</span>
+            <span>Cierre del proyecto</span>
+          </div>
+        </section>
+
+        <section id="fuentes">
+          <h2>Fuentes consultadas</h2>
+          <ul>
+            <li><a href="https://support.microsoft.com/" target="_blank" rel="noopener noreferrer">Microsoft Support - Centro de soporte</a></li>
+            <li><a href="https://www.hp.com/us-en/shop/tech-takes/computer-maintenance-tips" target="_blank" rel="noopener noreferrer">HP - Consejos de mantenimiento de computadora</a></li>
+            <li><a href="https://www.cisco.com/c/en/us/solutions/small-business/resource-center/networking/network-maintenance.html" target="_blank" rel="noopener noreferrer">Cisco - Mantenimiento de redes</a></li>
+          </ul>
+        </section>
+
+        <section class="article-navigation">
+          <a href="entrada6.html" class="btn btn-secondary">Entrada anterior</a>
+          <a href="../pagina principal/Blog.html" class="btn btn-primary">Volver al blog</a>
+        </section>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <strong>Fénix Labs</strong>
+      <p>Blog académico sobre soporte técnico remoto y presencial.</p>
+    </div>
+    <div class="footer-links">
+      <a href="../../index.html">Inicio</a>
+      <a href="../pagina principal/servicios.html">Servicios</a>
+      <a href="../pagina principal/Blog.html">Blog</a>
+      <a href="../pagina principal/contacto.html">Contacto</a>
+    </div>
+    <p class="copyright">© 2026 Fénix Labs. Proyecto académico.</p>
+  </footer>
+
+  <script src="../../assets/js/particles.js"></script>
+  <script src="../../assets/js/animations.js"></script>
+  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/comments.js"></script>
+</body>
+</html>

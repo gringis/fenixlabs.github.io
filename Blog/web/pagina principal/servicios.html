@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#070b14">
+
+  <title>Servicios | Fénix Labs</title>
+  <meta name="description" content="Sección completa de servicios de soporte técnico remoto y presencial de Fénix Labs." />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../../recursos/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../recursos/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../recursos/icons/favicon-16x16.png">
+  <link rel="manifest" href="../../recursos/icons/site.webmanifest">
+
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/animations.css">
+  <link rel="stylesheet" href="../../assets/css/comments.css">
+</head>
+<body>
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <header class="site-header">
+    <nav class="navbar">
+      <a href="../../index.html" class="logo">
+        <img src="../../recursos/logos/fenixlabs-logo.png" alt="Logo de Fénix Labs">
+        <span>Fénix Labs</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../../index.html">Inicio</a></li>
+        <li><a href="empresa.html">Empresa</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="Blog.html">Blog</a></li>
+        <li><a href="FAQ.html">FAQ</a></li>
+        <li><a href="contacto.html" class="nav-cta">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section page-section" id="servicios">
+      <div class="section-header">
+        <a href="../../index.html" class="back-link">← Volver al inicio</a>
+        <span class="eyebrow">Servicios</span>
+        <h1>Soporte técnico remoto y presencial</h1>
+        <p>
+          Esta sección explica los servicios simulados de Fénix Labs y cómo se
+          relacionan con la atención al cliente, el diagnóstico y la seguridad del usuario.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card"><h3>Soporte remoto</h3><p>Asistencia por chat, llamada, correo o acceso remoto autorizado para resolver fallas de software y configuración.</p></article>
+        <article class="service-card"><h3>Soporte telefónico</h3><p>Guía paso a paso mediante llamada para orientar al usuario sin tomar control directo del equipo.</p></article>
+        <article class="service-card"><h3>Mantenimiento lógico</h3><p>Revisión de archivos temporales, programas de inicio, rendimiento y hábitos preventivos.</p></article>
+        <article class="service-card"><h3>Seguridad básica</h3><p>Orientación para prevenir malware, proteger cuentas, evitar descargas peligrosas y crear contraseñas seguras.</p></article>
+        <article class="service-card"><h3>Soporte presencial</h3><p>Revisión física, instalación de hardware, redes, impresoras, periféricos y sistemas operativos.</p></article>
+        <article class="service-card"><h3>Asesorías</h3><p>Apoyo para elegir equipos, usar software escolar, organizar archivos y resolver dudas tecnológicas.</p></article>
+      </div>
+    </section>
+
+    <section class="section process-section">
+      <div class="section-header">
+        <span class="eyebrow">Proceso</span>
+        <h2>Ruta de atención</h2>
+        <p>Fénix Labs ordena cada solicitud para que el usuario sepa qué ocurre en cada etapa.</p>
+      </div>
+      <div class="process-timeline">
+        <div class="process-step"><span>01</span><h3>Recepción</h3><p>Se registra el problema, el equipo afectado y el canal de contacto.</p></div>
+        <div class="process-step"><span>02</span><h3>Diagnóstico</h3><p>Se identifican síntomas, causas probables y nivel de urgencia.</p></div>
+        <div class="process-step"><span>03</span><h3>Solución</h3><p>Se aplican pasos de soporte remoto, telefónico o presencial según el caso.</p></div>
+        <div class="process-step"><span>04</span><h3>Cierre</h3><p>Se confirma el resultado, se documenta el caso y se dan recomendaciones.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header"><span class="eyebrow">Alcance</span><h2>Qué sí y qué no cubre</h2></div>
+      <table class="content-table">
+        <thead><tr><th>Servicio</th><th>Sí incluye</th><th>No incluye</th></tr></thead>
+        <tbody>
+          <tr><td>Remoto</td><td>Configuración, orientación y revisión de software.</td><td>Reparaciones físicas del equipo.</td></tr>
+          <tr><td>Telefónico</td><td>Guía verbal y diagnóstico inicial.</td><td>Acciones sin autorización del usuario.</td></tr>
+          <tr><td>Presencial</td><td>Revisión física y mantenimiento básico.</td><td>Garantía de piezas externas al proyecto.</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <strong>Fénix Labs</strong>
+      <p>Proyecto académico sobre soporte técnico remoto y presencial.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="../../index.html">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="Blog.html">Blog</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+
+    <p class="copyright">© 2026 Fénix Labs. Proyecto académico.</p>
+  </footer>
+
+  <script src="../../assets/js/particles.js"></script>
+  <script src="../../assets/js/animations.js"></script>
+  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/comments.js"></script>
+</body>
+</html>
