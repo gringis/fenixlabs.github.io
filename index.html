@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FÉNIX LABS - Reiniciamos tus problemas, potenciamos tus soluciones. Servicios premium de soporte técnico, infraestructura tecnológica y consultoría para startups.">
+    <meta name="keywords" content="soporte técnico, fenix labs, tecnología, mantenimiento, redes, startup">
+    <meta name="author" content="FÉNIX LABS">
+    <meta property="og:title" content="FÉNIX LABS | Soluciones Tecnológicas">
+    <meta property="og:description" content="Reiniciamos tus problemas, potenciamos tus soluciones.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>FÉNIX LABS | Reiniciamos tus problemas, potenciamos tus soluciones</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono&family=Poppins:wght@500;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* === VARIABLES & THEMES === */
+        :root {
+            --primary: #2563EB;
+            --primary-light: #06B6D4;
+            --dark-bg: #0F172A;
+            --accent-orange: #F97316;
+            --accent-green: #22C55E;
+            --light-bg: #F8FAFC;
+            --text-dark: #cbd5e1;
+            --text-light: #334155;
+            --heading-dark: #ffffff;
+            --heading-light: #0f172a;
+            --glass-bg-dark: rgba(15, 23, 42, 0.7);
+            --glass-bg-light: rgba(248, 250, 252, 0.7);
+            --border-dark: rgba(255,255,255,0.1);
+            --border-light: rgba(0,0,0,0.1);
+            --font-heading: 'Poppins', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-tech: 'JetBrains Mono', monospace;
+            --transition: all 0.3s ease;
+        }
+
+        body.dark {
+            --bg-color: var(--dark-bg);
+            --text-color: var(--text-dark);
+            --heading-color: var(--heading-dark);
+            --glass-bg: var(--glass-bg-dark);
+            --border-color: var(--border-dark);
+            --card-bg: rgba(30, 41, 59, 0.5);
+        }
+
+        body.light {
+            --bg-color: var(--light-bg);
+            --text-color: var(--text-light);
+            --heading-color: var(--heading-light);
+            --glass-bg: var(--glass-bg-light);
+            --border-color: var(--border-light);
+            --card-bg: rgba(255, 255, 255, 0.8);
+        }
+
+        /* === RESET & BASE === */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: var(--font-body); 
+            background-color: var(--bg-color); 
+            color: var(--text-color); 
+            transition: var(--transition);
+            overflow-x: hidden;
+            line-height: 1.6;
+            cursor: none; /* Custom cursor */
+        }
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); color: var(--heading-color); margin-bottom: 1rem; }
+        a { color: var(--primary-light); text-decoration: none; transition: var(--transition); }
+        a:hover { color: var(--primary); }
+        ul { list-style: none; }
+        img { max-width: 100%; border-radius: 8px; }
+
+        /* === CUSTOM CURSOR === */
+        .cursor-dot, .cursor-outline {
+            position: fixed;
+            top: 0; left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
+        }
+        .cursor-dot { width: 8px; height: 8px; background-color: var(--primary-light); }
+        .cursor-outline {
+            width: 40px; height: 40px;
+            border: 2px solid var(--primary);
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+        .cursor-hover .cursor-outline {
+            width: 60px; height: 60px; background-color: rgba(6, 182, 212, 0.1);
+            border-color: var(--primary-light);
+        }
+
+        /* === SCROLLBAR & PROGRESS === */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--bg-color); }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary-light); }
+        
+        #reading-progress {
+            position: fixed; top: 0; left: 0; height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            z-index: 10000; width: 0%; transition: width 0.1s;
+        }
+
+        /* === LOADER === */
+        #loader {
+            position: fixed; inset: 0; background: var(--dark-bg);
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            z-index: 99999; transition: opacity 0.5s ease;
+        }
+        .loader-logo { font-family: var(--font-heading); font-size: 3rem; color: #fff; animation: pulse 1.5s infinite; }
+        .loader-bar-bg { width: 200px; height: 4px; background: rgba(255,255,255,0.1); margin-top: 1rem; overflow: hidden; border-radius: 2px; }
+        .loader-bar { width: 0%; height: 100%; background: var(--primary-light); animation: loadBar 2s ease forwards; }
+        @keyframes pulse { 0%, 100% { opacity: 0.5; text-shadow: 0 0 10px var(--primary); } 50% { opacity: 1; text-shadow: 0 0 30px var(--primary-light); } }
+        @keyframes loadBar { 100% { width: 100%; } }
+
+        /* === LAYOUT & UTILS === */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .section { padding: 5rem 0; position: relative; }
+        .glass { background: var(--glass-bg); backdrop-filter: blur(12px); border: 1px solid var(--border-color); border-radius: 16px; }
+        .text-gradient { background: linear-gradient(90deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .flex-center { display: flex; justify-content: center; align-items: center; }
+        .grid { display: grid; gap: 2rem; }
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        .btn {
+            display: inline-block; padding: 0.8rem 1.5rem; border-radius: 8px; font-family: var(--font-heading);
+            font-weight: 600; cursor: pointer; transition: var(--transition); text-align: center; border: none;
+            position: relative; overflow: hidden;
+        }
+        .btn-primary { background: linear-gradient(90deg, var(--primary), var(--primary-light)); color: white; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3); }
+        .btn-primary:hover { box-shadow: 0 6px 25px rgba(6, 182, 212, 0.5); transform: translateY(-2px); }
+        .btn-secondary { background: transparent; border: 1px solid var(--primary-light); color: var(--heading-color); }
+        .btn-secondary:hover { background: rgba(6, 182, 212, 0.1); transform: translateY(-2px); }
+
+        /* === HEADER === */
+        header { position: fixed; top: 0; width: 100%; z-index: 1000; transition: var(--transition); border-bottom: 1px solid transparent; }
+        header.scrolled { background: var(--glass-bg); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); }
+        nav { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        .logo { font-size: 1.5rem; font-weight: 900; font-family: var(--font-heading); color: var(--heading-color); display: flex; align-items: center; gap: 0.5rem; }
+        .logo-icon { color: var(--accent-orange); font-size: 1.8rem; text-shadow: 0 0 10px var(--accent-orange); }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { color: var(--text-color); font-weight: 500; font-family: var(--font-heading); }
+        .nav-links a:hover { color: var(--primary-light); }
+        .theme-toggle { background: none; border: none; color: var(--text-color); font-size: 1.2rem; cursor: pointer; padding: 0.5rem; }
+
+        /* === HERO SECTION === */
+        .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 80px; }
+        .hero-bg { position: absolute; inset: 0; z-index: -1; background: radial-gradient(circle at top right, rgba(37, 99, 235, 0.15), transparent 50%), radial-gradient(circle at bottom left, rgba(6, 182, 212, 0.15), transparent 50%); }
+        .hero-content { max-width: 800px; z-index: 1; }
+        .hero h1 { font-size: clamp(3rem, 5vw, 5rem); line-height: 1.1; margin-bottom: 1.5rem; animation: slideUp 1s ease forwards; opacity: 0; }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; animation: slideUp 1s ease 0.2s forwards; opacity: 0; }
+        .hero-btns { display: flex; gap: 1rem; animation: slideUp 1s ease 0.4s forwards; opacity: 0; }
+        @keyframes slideUp { from { transform: translateY(50px); opacity: 0; filter: blur(5px); } to { transform: translateY(0); opacity: 1; filter: blur(0); } }
+
+        /* === AUTHOR & ABOUT === */
+        .profile-card { display: flex; gap: 2rem; align-items: center; padding: 2rem; flex-wrap: wrap; }
+        .profile-img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary-light); box-shadow: 0 0 20px rgba(6, 182, 212, 0.3); }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem; }
+
+        /* === STATS === */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center; }
+        .stat-item h3 { font-size: 3rem; color: var(--primary-light); margin-bottom: 0.5rem; font-family: var(--font-tech); }
+
+        /* === SERVICES === */
+        .service-card { padding: 2rem; border-radius: 16px; background: var(--card-bg); border: 1px solid var(--border-color); transition: var(--transition); position: relative; overflow: hidden; }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-color: var(--primary-light); }
+        .service-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; }
+
+        /* === PROCESS TIMELINE === */
+        .timeline { position: relative; max-width: 800px; margin: 0 auto; }
+        .timeline::before { content: ''; position: absolute; width: 2px; background: var(--primary); top: 0; bottom: 0; left: 50%; transform: translateX(-50%); }
+        .timeline-item { padding: 2rem 0; width: 50%; position: relative; }
+        .timeline-item:nth-child(odd) { left: 0; padding-right: 3rem; text-align: right; }
+        .timeline-item:nth-child(even) { left: 50%; padding-left: 3rem; }
+        .timeline-dot { position: absolute; width: 20px; height: 20px; background: var(--accent-orange); border-radius: 50%; top: 50%; transform: translateY(-50%); box-shadow: 0 0 10px var(--accent-orange); }
+        .timeline-item:nth-child(odd) .timeline-dot { right: -10px; }
+        .timeline-item:nth-child(even) .timeline-dot { left: -10px; }
+
+        /* === BLOG === */
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+        .blog-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; overflow: hidden; transition: var(--transition); }
+        .blog-card:hover { transform: scale(1.02); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+        .blog-img { width: 100%; height: 200px; background: linear-gradient(45deg, var(--dark-bg), var(--primary)); object-fit: cover; }
+        .blog-content { padding: 1.5rem; }
+        .blog-tags { display: flex; gap: 0.5rem; margin-bottom: 1rem; font-size: 0.8rem; font-family: var(--font-tech); }
+        .tag { background: rgba(37, 99, 235, 0.2); padding: 0.2rem 0.6rem; border-radius: 4px; color: var(--primary-light); }
+        
+        /* CSS Flowchart for Blog 4 */
+        .css-flowchart { display: flex; flex-direction: column; align-items: center; gap: 1rem; margin: 2rem 0; font-family: var(--font-tech); font-size: 0.9rem; }
+        .flow-box { background: var(--glass-bg); border: 1px solid var(--primary-light); padding: 0.5rem 1rem; border-radius: 8px; width: 200px; text-align: center; }
+        .flow-arrow { color: var(--accent-orange); font-weight: bold; }
+
+        /* Blog Tables */
+        table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: var(--glass-bg); }
+        th, td { padding: 1rem; border: 1px solid var(--border-color); text-align: left; }
+        th { background: rgba(37, 99, 235, 0.1); color: var(--primary-light); font-family: var(--font-heading); }
+
+        /* === FAQ & ACCORDION === */
+        .faq-item { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; margin-bottom: 1rem; overflow: hidden; }
+        .faq-question { padding: 1.5rem; width: 100%; text-align: left; background: none; border: none; color: var(--heading-color); font-weight: 600; font-family: var(--font-heading); cursor: pointer; display: flex; justify-content: space-between; }
+        .faq-answer { padding: 0 1.5rem; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .faq-item.active .faq-answer { padding-bottom: 1.5rem; max-height: 500px; }
+
+        /* === TESTIMONIALS & CASES === */
+        .testimonial-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 2rem; padding-bottom: 2rem; }
+        .testimonial-card { min-width: 300px; scroll-snap-align: start; padding: 2rem; border-radius: 16px; background: var(--glass-bg); border: 1px solid var(--border-color); }
+        .test-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .test-avatar { width: 50px; height: 50px; border-radius: 50%; background: var(--primary); }
+        
+        .case-card { padding: 2rem; border-left: 4px solid var(--accent-green); background: var(--card-bg); margin-bottom: 1.5rem; }
+
+        /* === LOCAL COMMENTS SYSTEM === */
+        .comments-section { background: var(--glass-bg); padding: 2rem; border-radius: 16px; border: 1px solid var(--border-color); margin-top: 4rem; }
+        .comment-form { display: grid; gap: 1rem; margin-bottom: 2rem; }
+        .comment-form input, .comment-form textarea { width: 100%; padding: 1rem; background: rgba(0,0,0,0.1); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-color); font-family: var(--font-body); }
+        .comment-list { display: grid; gap: 1.5rem; }
+        .comment-item { padding: 1.5rem; background: var(--card-bg); border-radius: 8px; border: 1px solid var(--border-color); display: flex; gap: 1rem; }
+        .comment-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--primary-light); display: flex; align-items: center; justify-content: center; font-weight: bold; color: #111; }
+        .comment-actions { display: flex; gap: 1rem; margin-top: 0.5rem; font-size: 0.85rem; font-family: var(--font-tech); }
+        .comment-actions button { background: none; border: none; color: var(--primary-light); cursor: pointer; }
+
+        /* === TOAST NOTIFICATIONS === */
+        #toast-container { position: fixed; bottom: 20px; right: 20px; z-index: 10000; display: flex; flex-direction: column; gap: 10px; }
+        .toast { background: var(--glass-bg); backdrop-filter: blur(10px); color: var(--heading-color); padding: 1rem 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary-light); box-shadow: 0 4px 15px rgba(0,0,0,0.2); animation: slideInRight 0.3s ease forwards; display: flex; align-items: center; gap: 1rem; }
+        .toast.success { border-left-color: var(--accent-green); }
+        .toast.error { border-left-color: var(--accent-orange); }
+        @keyframes slideInRight { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+        /* === FOOTER === */
+        footer { background: var(--dark-bg); border-top: 1px solid rgba(255,255,255,0.1); padding: 4rem 0 2rem; color: #94a3b8; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
+        .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; font-size: 0.9rem; }
+
+        /* === UTILITIES & RESPONSIVE === */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Simplified mobile for code brevity */
+            .timeline::before { left: 20px; }
+            .timeline-item { width: 100% !important; padding-left: 50px !important; text-align: left !important; left: 0 !important; }
+            .timeline-dot { left: 10px !important; }
+            .about-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body class="dark">
+
+    <div id="loader">
+        <div class="loader-logo">FÉNIX LABS</div>
+        <div class="loader-bar-bg"><div class="loader-bar"></div></div>
+        <p style="margin-top: 1rem; font-family: var(--font-tech); font-size: 0.9rem;">Inicializando sistemas...</p>
+    </div>
+
+    <div id="reading-progress"></div>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <span class="logo-icon">⟁</span> FÉNIX LABS
+                </div>
+                <div class="nav-links">
+                    <a href="#inicio" class="hover-target">Inicio</a>
+                    <a href="#servicios" class="hover-target">Servicios</a>
+                    <a href="#blog" class="hover-target">Blog</a>
+                    <a href="#casos" class="hover-target">Casos</a>
+                    <a href="#faq" class="hover-target">FAQ</a>
+                </div>
+                <div style="display:flex; gap: 1rem; align-items: center;">
+                    <button class="theme-toggle hover-target" id="theme-btn" aria-label="Cambiar tema">☀️</button>
+                    <a href="#contacto" class="btn btn-primary hover-target">Contactar</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-bg"></div>
+        <div class="container flex-center">
+            <div class="hero-content text-center">
+                <h1><span class="text-gradient">Reiniciamos</span> tus problemas,<br>potenciamos tus <span class="text-gradient">soluciones</span>.</h1>
+                <p>Infraestructura IT, soporte remoto premium y consultoría tecnológica diseñada para startups de alto rendimiento. Operatividad 24/7 sin interrupciones.</p>
+                <div class="hero-btns flex-center">
+                    <a href="#servicios" class="btn btn-primary hover-target">Explorar Servicios</a>
+                    <a href="#blog" class="btn btn-secondary hover-target">Leer Documentación</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section glass" style="margin: 2rem auto; max-width: 1200px;">
+        <div class="container reveal">
+            <h2 class="text-gradient">Arquitectura del Proyecto</h2>
+            <div class="profile-card">
+                <div class="profile-img" style="background: linear-gradient(135deg, var(--primary), var(--accent-orange));"></div>
+                <div>
+                    <h3>Director Creativo & Ingeniero Frontend Senior</h3>
+                    <p class="tag">FÉNIX LABS CORE TEAM</p>
+                    <p style="margin-top: 1rem; max-width: 600px;">
+                        <strong>Propósito:</strong> Demostrar la viabilidad de interfaces de alto rendimiento (HPI) utilizando tecnologías nativas (HTML5, CSS3, JS ES6+) sin dependencias externas, cumpliendo rigurosamente los requisitos de evaluación corporativa y académica. <br><br>
+                        <strong>Metas:</strong> Establecer un estándar de calidad visual comparable a líderes de la industria tecnológica, integrando accesibilidad (WCAG), rendimiento y experiencia de usuario inmersiva.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="nosotros" class="section">
+        <div class="container reveal">
+            <div class="about-grid">
+                <div>
+                    <h2 class="text-gradient">Identidad Corporativa</h2>
+                    <p>En <strong>FÉNIX LABS</strong>, entendemos que la tecnología es el núcleo de tu operatividad. Nacimos hace 5 años con una <strong>Misión</strong> clara: democratizar el soporte técnico de nivel enterprise para startups y pymes. Nuestra <strong>Visión</strong> es convertirnos en el estándar de oro en mantenimiento y resiliencia digital en la región.</p>
+                    <br>
+                    <p><strong>Valores:</strong> Innovación constante, transparencia absoluta, seguridad por diseño y empatía técnica.</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item glass padding-2">
+                        <h3 class="counter" data-target="2500">0</h3>
+                        <p>Incidencias Resueltas</p>
+                    </div>
+                    <div class="stat-item glass padding-2">
+                        <h3 class="counter" data-target="300">0</h3>
+                        <p>Clientes Atendidos</p>
+                    </div>
+                    <div class="stat-item glass padding-2">
+                        <h3 class="counter" data-target="98">0</h3>
+                        <p>% Satisfacción</p>
+                    </div>
+                    <div class="stat-item glass padding-2">
+                        <h3 class="counter" data-target="1200">0</h3>
+                        <p>Equipos Optimizados</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="section glass">
+        <div class="container reveal">
+            <h2 class="text-center text-gradient" style="margin-bottom: 3rem;">Nuestros Servicios</h2>
+            <div class="grid grid-3">
+                <div class="service-card hover-target">
+                    <div class="service-icon">🌐</div>
+                    <h3>Soporte Remoto</h3>
+                    <p>Resolución de incidencias en tiempo real mediante protocolos seguros y encriptados, minimizando el tiempo de inactividad de tus operaciones.</p>
+                </div>
+                <div class="service-card hover-target">
+                    <div class="service-icon">🏢</div>
+                    <h3>Soporte Presencial</h3>
+                    <p>Intervención técnica directa en sitio para despliegue de hardware, configuración de redes físicas y resolución de fallos críticos.</p>
+                </div>
+                <div class="service-card hover-target">
+                    <div class="service-icon">🛡️</div>
+                    <h3>Mantenimiento Preventivo</h3>
+                    <p>Auditorías periódicas, limpieza física/lógica y actualización de sistemas para extender la vida útil de la infraestructura.</p>
+                </div>
+                <div class="service-card hover-target">
+                    <div class="service-icon">🔧</div>
+                    <h3>Mantenimiento Correctivo</h3>
+                    <p>Reparación de hardware y software ante fallos inesperados, asegurando una recuperación rápida de los sistemas afectados.</p>
+                </div>
+                <div class="service-card hover-target">
+                    <div class="service-icon">🦠</div>
+                    <h3>Eliminación de Malware</h3>
+                    <p>Detección, contención y erradicación de amenazas de seguridad, incluyendo ransomware y troyanos persistentes.</p>
+                </div>
+                <div class="service-card hover-target">
+                    <div class="service-icon">💾</div>
+                    <h3>Recuperación de Datos</h3>
+                    <p>Técnicas avanzadas de análisis forense para restaurar información crítica desde unidades de almacenamiento dañadas o formateadas.</p>
+                </div>
+                <div class="service-card hover-target">
+                    <div class="service-icon">📡</div>
+                    <h3>Redes Empresariales</h3>
+                    <p>Diseño, cableado estructurado y configuración de enrutamiento avanzado para garantizar conexiones estables y seguras.</p>
+                </div>
+                <div class="service-card hover-target">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Configuración Empresarial</h3>
+                    <p>Implementación de políticas de dominio (Active Directory), gestión de accesos y estandarización de entornos de trabajo.</p>
+                </div>
+                <div class="service-card hover-target">
+                    <div class="service-icon">💻</div>
+                    <h3>Instalación de Software</h3>
+                    <p>Despliegue masivo y licenciamiento de software corporativo, garantizando compatibilidad y cumplimiento normativo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container reveal">
+            <h2 class="text-center text-gradient" style="margin-bottom: 3rem;">Protocolo de Ejecución</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <h3>1. Contacto</h3>
+                    <p>Recepción de la solicitud vía portal, correo o línea de emergencia.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <h3>2. Diagnóstico</h3>
+                    <p>Análisis inicial del fallo y evaluación de impacto en la operatividad.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <h3>3. Acceso Remoto</h3>
+                    <p>Establecimiento de conexión segura con autorización explícita del cliente.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <h3>4. Resolución</h3>
+                    <p>Aplicación de correcciones técnicas y despliegue de parches necesarios.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <h3>5. Verificación</h3>
+                    <p>Pruebas exhaustivas para confirmar la estabilidad del sistema intervenido.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <h3>6. Seguimiento</h3>
+                    <p>Cierre de ticket y monitoreo proactivo durante las siguientes 48 horas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog" class="section glass">
+        <div class="container reveal">
+            <h2 class="text-center text-gradient" style="margin-bottom: 3rem;">Base de Conocimiento & Blog Corporativo</h2>
+            
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-img"></div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><span class="tag">Empresa</span> <span class="tag">5 min</span></div>
+                        <h3>1. Conoce FÉNIX LABS: Identidad y Servicios</h3>
+                        <p style="font-size: 0.9rem; margin-bottom: 1rem;"><strong>Autor:</strong> Equipo Directivo | <strong>Fecha:</strong> Octubre 2023</p>
+                        <p>Somos FÉNIX LABS. Nuestro Slogan: <em>"Reiniciamos tus problemas, potenciamos tus soluciones."</em> Ubicados en el hub tecnológico principal, ofrecemos servicios de soporte remoto, asesorías estratégicas, mantenimiento integral y capacitación de personal IT. Contáctanos a contacto@fenixlabs.tech o síguenos en <a href="#">LinkedIn</a> y <a href="#">Twitter</a>. Para más detalles técnicos, revisa nuestra <a href="#">documentación de API</a>.</p>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-img"></div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><span class="tag">Políticas</span> <span class="tag">7 min</span></div>
+                        <h3>2. Código de Conducta y Normas de Atención</h3>
+                        <p style="font-size: 0.9rem; margin-bottom: 1rem;"><strong>Autor:</strong> RRHH | <strong>Fecha:</strong> Noviembre 2023</p>
+                        <p>Establecemos estrictas normativas para la atención remota y presencial. Todo ingeniero de Fénix Labs opera bajo un código de ética que prioriza la <strong>protección de datos</strong> y el respeto al cliente. En casos prácticos (ej. acceso a bases de datos sensibles), el operador debe tener la cámara encendida y registrar la sesión. Consulta la <a href="#">ley de protección de datos</a> aplicable y nuestras <a href="#">políticas de auditoría</a> y <a href="#">certificaciones de seguridad</a>.</p>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-img"></div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><span class="tag">Soporte</span> <span class="tag">6 min</span></div>
+                        <h3>3. Políticas de Soporte Técnico Remoto</h3>
+                        <p style="font-size: 0.9rem; margin-bottom: 1rem;"><strong>Autor:</strong> Director de Operaciones | <strong>Fecha:</strong> Diciembre 2023</p>
+                        <p>Nuestros horarios base son de Lunes a Viernes (09:00 - 18:00), con atención de incidencias críticas 24/7. El alcance cubre software base, SO y ofimática; las limitaciones excluyen desarrollo de software a medida. El proceso de escalamiento consta de Niveles 1, 2 y 3. El cliente tiene la responsabilidad de mantener copias de seguridad previas, como indica el <a href="#">NIST</a>. Revisa nuestros <a href="#">SLA's</a> y <a href="#">Términos de Servicio</a>.</p>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-img"></div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><span class="tag">Protocolo</span> <span class="tag">8 min</span></div>
+                        <h3>4. Diagrama de Flujo: Protocolo Remoto</h3>
+                        <p style="font-size: 0.9rem; margin-bottom: 1rem;"><strong>Autor:</strong> Lead Engineer | <strong>Fecha:</strong> Enero 2024</p>
+                        <p>Visualización del procedimiento estándar:</p>
+                        <div class="css-flowchart">
+                            <div class="flow-box">Inicio</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-box">Recepción de Solicitud</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-box">Diagnóstico & Validación</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-box">Conexión Remota</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-box">Resolución & Pruebas</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-box">Cierre & Documentación</div>
+                        </div>
+                        <p>Lee la <a href="#">guía detallada</a>, el <a href="#">manual de usuario</a> y el <a href="#">registro de incidencias</a>.</p>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-img"></div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><span class="tag">Legal</span> <span class="tag">10 min</span></div>
+                        <h3>5. Contratos y NDA Informático</h3>
+                        <p style="font-size: 0.9rem; margin-bottom: 1rem;"><strong>Autor:</strong> Dpto. Legal | <strong>Fecha:</strong> Febrero 2024</p>
+                        <p>Todo servicio requiere la aceptación de un Acuerdo de Confidencialidad (NDA). Las cláusulas principales aseguran la no divulgación de código fuente o datos de clientes. Fija obligaciones de cifrado y derechos sobre la propiedad intelectual. <em>Firma Consultor: [FÉNIX LABS] | Firma Cliente: [REPRESENTANTE]</em>. Revisa modelos en la <a href="#">WIPO</a>, formatos de <a href="#">contratos IT</a> y normativas de <a href="#">compliance</a>.</p>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-img"></div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><span class="tag">Herramientas</span> <span class="tag">12 min</span></div>
+                        <h3>6. Análisis de Software Remoto</h3>
+                        <p style="font-size: 0.9rem; margin-bottom: 1rem;"><strong>Autor:</strong> Sistemas | <strong>Fecha:</strong> Marzo 2024</p>
+                        <div style="overflow-x:auto;">
+                            <table>
+                                <tr><th>Software</th><th>Ventaja</th><th>Desventaja</th></tr>
+                                <tr><td>TeamViewer</td><td>Estándar industria</td><td>Costo elevado</td></tr>
+                                <tr><td>AnyDesk</td><td>Alta velocidad</td><td>Falsos positivos AV</td></tr>
+                                <tr><td>RustDesk</td><td>Open Source</td><td>Requiere server propio</td></tr>
+                            </table>
+                        </div>
+                        <p>Evaluamos también Supremo y Chrome Remote. Consulta las webs de <a href="#">RustDesk</a>, <a href="#">AnyDesk</a> y <a href="#">TeamViewer</a> para descargas.</p>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-img"></div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><span class="tag">Terreno</span> <span class="tag">5 min</span></div>
+                        <h3>7. Alcance del Soporte Presencial</h3>
+                        <p style="font-size: 0.9rem; margin-bottom: 1rem;"><strong>Autor:</strong> Hardware Team | <strong>Fecha:</strong> Abril 2024</p>
+                        <p>Nuestro equipo en terreno cubre diagnóstico físico, reemplazo de componentes (Hardware), recableado de racks (Redes), instalación nativa de SO (Windows Server/Linux), y mantenimiento preventivo integral para servidores de misión crítica. Conoce los estándares <a href="#">TIA/EIA-568</a>, normativas de <a href="#">refrigeración en Data Centers</a> y herramientas de <a href="#">recuperación física</a>.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container reveal">
+            <h2 class="text-center text-gradient" style="margin-bottom: 3rem;">Stack de Herramientas Remotas</h2>
+            <div class="grid grid-3">
+                <div class="service-card text-center">
+                    <h3 class="text-gradient">TeamViewer</h3>
+                    <p>Plataforma enterprise para conexiones desatendidas y transferencia de archivos cifrada.</p>
+                </div>
+                <div class="service-card text-center">
+                    <h3 class="text-gradient">AnyDesk</h3>
+                    <p>Latencia ultra baja ideal para conexiones de soporte rápido y entornos de bajo ancho de banda.</p>
+                </div>
+                <div class="service-card text-center">
+                    <h3 class="text-gradient">RustDesk</h3>
+                    <p>Solución Open Source que utilizamos con nuestro propio servidor de retransmisión para máxima privacidad.</p>
+                </div>
+                <div class="service-card text-center">
+                    <h3 class="text-gradient">Supremo</h3>
+                    <p>Cliente ligero que no requiere instalación, perfecto para soporte de Nivel 1 a usuarios finales.</p>
+                </div>
+                <div class="service-card text-center">
+                    <h3 class="text-gradient">Chrome Remote</h3>
+                    <p>Acceso integrado al ecosistema de Google para intervenciones rápidas basadas en navegador.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="casos" class="section glass">
+        <div class="container reveal">
+            <h2 class="text-center text-gradient" style="margin-bottom: 3rem;">Casos de Éxito</h2>
+            <div class="grid">
+                <div class="case-card">
+                    <h4>Startup Fintech - Migración Crítica</h4>
+                    <p><strong>Problema:</strong> Caída del servidor de base de datos principal durante el Black Friday.</p>
+                    <p><strong>Solución:</strong> Implementación de clúster de alta disponibilidad y recuperación de respaldos en 45 minutos vía soporte remoto.</p>
+                    <p class="text-gradient"><strong>Resultado:</strong> 0% pérdida de datos y operatividad restablecida antes del pico de tráfico.</p>
+                </div>
+                <div class="case-card">
+                    <h4>Agencia de Marketing - Ransomware</h4>
+                    <p><strong>Problema:</strong> Infección de red local que encriptó los proyectos de diseño de la agencia.</p>
+                    <p><strong>Solución:</strong> Aislamiento de red presencial, eliminación de la amenaza y restauración de Shadow Copies forenses.</p>
+                    <p class="text-gradient"><strong>Resultado:</strong> Recuperación del 98% de la información operativa en menos de 24 horas.</p>
+                </div>
+                <div class="case-card">
+                    <h4>Firma Legal - Trabajo Remoto</h4>
+                    <p><strong>Problema:</strong> Necesidad urgente de implementar VPN segura para 50 abogados tras confinamiento.</p>
+                    <p><strong>Solución:</strong> Configuración de túneles IPSec e instalación masiva remota de clientes VPN.</p>
+                    <p class="text-gradient"><strong>Resultado:</strong> Transición completa a teletrabajo en 48 horas sin brechas de seguridad.</p>
+                </div>
+                <div class="case-card">
+                    <h4>Clínica Dental - Redes</h4>
+                    <p><strong>Problema:</strong> Desconexión intermitente de los equipos de rayos X digitales.</p>
+                    <p><strong>Solución:</strong> Mantenimiento correctivo presencial y recableado estructurado CAT6.</p>
+                    <p class="text-gradient"><strong>Resultado:</strong> Estabilidad de red al 100%, eliminando cuellos de botella en la transferencia de imágenes.</p>
+                </div>
+                <div class="case-card">
+                    <h4>E-Commerce - Lentitud de Sistema</h4>
+                    <p><strong>Problema:</strong> Equipos del área de logística operando con lentitud extrema.</p>
+                    <p><strong>Solución:</strong> Mantenimiento preventivo, limpieza de temporales y optimización de SO en bloque.</p>
+                    <p class="text-gradient"><strong>Resultado:</strong> Aumento del 40% en el rendimiento de terminales, acelerando el despacho de envíos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="section">
+        <div class="container reveal">
+            <h2 class="text-center text-gradient" style="margin-bottom: 3rem;">Preguntas Frecuentes</h2>
+            <div class="faq-container" style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item">
+                    <button class="faq-question">¿Tienen cobertura internacional para soporte remoto? <span>+</span></button>
+                    <div class="faq-answer"><p>Sí, ofrecemos soporte remoto a nivel global en español e inglés, sujeto a la calidad de la conexión a internet del cliente.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">¿Cuál es el tiempo de respuesta (SLA) para emergencias? <span>+</span></button>
+                    <div class="faq-answer"><p>Para clientes con contrato premium, nuestro tiempo de respuesta inicial es de 15 minutos en horario crítico.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">¿El diagnóstico inicial tiene costo? <span>+</span></button>
+                    <div class="faq-answer"><p>El diagnóstico remoto de primer nivel es gratuito. Si requiere intervención técnica profunda o en sitio, se cotiza previamente.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">¿Qué pasa si mi problema no se puede resolver remotamente? <span>+</span></button>
+                    <div class="faq-answer"><p>Se escalará a nuestro equipo de terreno para agendar una visita presencial de mantenimiento correctivo.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">¿Cómo garantizan la privacidad de mis datos? <span>+</span></button>
+                    <div class="faq-answer"><p>Firmamos un estricto NDA, utilizamos conexiones cifradas de extremo a extremo y grabamos las sesiones solo bajo consentimiento.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">¿Qué software utilizan para conectarse? <span>+</span></button>
+                    <div class="faq-answer"><p>Dependiendo del entorno, utilizamos TeamViewer, AnyDesk, Supremo o nuestro propio servidor RustDesk para máxima seguridad.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">¿Ofrecen soporte para entornos MacOS y Linux? <span>+</span></button>
+                    <div class="faq-answer"><p>Absolutamente. Nuestros ingenieros están certificados en arquitecturas Windows, macOS y distribuciones Linux para servidores y desktop.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">¿Realizan venta de hardware? <span>+</span></button>
+                    <div class="faq-answer"><p>No directamente, pero ofrecemos consultoría de adquisiciones para que compres los equipos exactos que necesita tu empresa sin sobrecostos.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">¿Puedo contratar pólizas de mantenimiento mensual? <span>+</span></button>
+                    <div class="faq-answer"><p>Sí, ofrecemos pólizas mensuales adaptadas al volumen de equipos y la criticidad de la operación de su startup.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">¿Recuperan datos de discos duros formateados? <span>+</span></button>
+                    <div class="faq-answer"><p>Sí, contamos con herramientas de análisis forense para intentar la recuperación lógica, siempre que el disco no tenga daño físico severo en los platos.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section glass">
+        <div class="container reveal">
+            <h2 class="text-center text-gradient" style="margin-bottom: 3rem;">Lo que dicen nuestros clientes</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="test-header">
+                        <div class="test-avatar" style="background: #ef4444"></div>
+                        <div><h4>Carlos R.</h4><p class="tag">CEO Startup</p></div>
+                    </div>
+                    <p>"Fénix Labs nos salvó de una caída masiva. Su respuesta remota fue instantánea. Calificación: ⭐⭐⭐⭐⭐"</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="test-header">
+                        <div class="test-avatar" style="background: #3b82f6"></div>
+                        <div><h4>Ana T.</h4><p class="tag">Directora HR</p></div>
+                    </div>
+                    <p>"Configuraron todas las VPN de nuestro equipo en tiempo récord. Totalmente confiables. Calificación: ⭐⭐⭐⭐⭐"</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="test-header">
+                        <div class="test-avatar" style="background: #10b981"></div>
+                        <div><h4>Luis M.</h4><p class="tag">Gerente TI</p></div>
+                    </div>
+                    <p>"El nivel de conocimiento en servidores Linux de estos ingenieros es de primer nivel. Calificación: ⭐⭐⭐⭐⭐"</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="test-header">
+                        <div class="test-avatar" style="background: #f59e0b"></div>
+                        <div><h4>Sofía G.</h4><p class="tag">Abogada</p></div>
+                    </div>
+                    <p>"Excelente protocolo de seguridad. El NDA y la transparencia en la conexión da mucha paz mental. Calificación: ⭐⭐⭐⭐⭐"</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="test-header">
+                        <div class="test-avatar" style="background: #8b5cf6"></div>
+                        <div><h4>Roberto V.</h4><p class="tag">Founder E-Commerce</p></div>
+                    </div>
+                    <p>"Pólizas de mantenimiento super claras. Nuestros equipos no han vuelto a fallar. Calificación: ⭐⭐⭐⭐⭐"</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="test-header">
+                        <div class="test-avatar" style="background: #ec4899"></div>
+                        <div><h4>Elena P.</h4><p class="tag">Diseñadora</p></div>
+                    </div>
+                    <p>"Recuperaron 2TB de archivos de un disco dañado que creíamos perdido para siempre. Calificación: ⭐⭐⭐⭐⭐"</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="test-header">
+                        <div class="test-avatar" style="background: #14b8a6"></div>
+                        <div><h4>Javier D.</h4><p class="tag">Médico</p></div>
+                    </div>
+                    <p>"Soporte técnico empático y profesional. Solucionaron los problemas de red de la clínica. Calificación: ⭐⭐⭐⭐⭐"</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="test-header">
+                        <div class="test-avatar" style="background: #f43f5e"></div>
+                        <div><h4>Marta S.</h4><p class="tag">Productora</p></div>
+                    </div>
+                    <p>"El mejor partner tecnológico que hemos contratado. Resolutivos 100%. Calificación: ⭐⭐⭐⭐⭐"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container reveal">
+            <div class="comments-section">
+                <h3>Comunidad y Discusiones</h3>
+                <p style="margin-bottom: 2rem; font-size: 0.9rem; color: var(--primary-light);">Comentarios locales simulados (LocalStorage). No se requiere backend.</p>
+                
+                <form class="comment-form" id="comment-form">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <input type="text" id="c-name" placeholder="Tu Nombre" required aria-label="Nombre">
+                        <input type="email" id="c-email" placeholder="Tu Correo" required aria-label="Correo">
+                    </div>
+                    <textarea id="c-text" rows="4" placeholder="Escribe tu comentario..." required aria-label="Comentario"></textarea>
+                    <button type="submit" class="btn btn-primary hover-target" style="width: max-content;">Publicar Comentario</button>
+                </form>
+
+                <div class="comment-list" id="comment-list">
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="logo" style="margin-bottom: 1rem;">
+                        <span class="logo-icon">⟁</span> FÉNIX LABS
+                    </div>
+                    <p>Reiniciamos tus problemas,<br>potenciamos tus soluciones.</p>
+                </div>
+                <div>
+                    <h4 style="color: #fff;">Contacto</h4>
+                    <ul>
+                        <li>soporte@fenixlabs.tech</li>
+                        <li>+52 55 1234 5678</li>
+                        <li>Torre Tecnológica, Piso 12</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: #fff;">Legal</h4>
+                    <ul>
+                        <li><a href="#">Aviso de Privacidad</a></li>
+                        <li><a href="#">Términos y Condiciones</a></li>
+                        <li><a href="#">Políticas de SLA</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: #fff;">Redes Sociales</h4>
+                    <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                        <a href="#" class="btn-secondary" style="padding: 0.5rem; border-radius: 50%;">GH</a>
+                        <a href="#" class="btn-secondary" style="padding: 0.5rem; border-radius: 50%;">IN</a>
+                        <a href="#" class="btn-secondary" style="padding: 0.5rem; border-radius: 50%;">X</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 FÉNIX LABS. Todos los derechos reservados. Startup Core Technology.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="btn btn-primary hover-target" style="position: fixed; bottom: 20px; right: 20px; border-radius: 50%; width: 50px; height: 50px; display: none; z-index: 9000; padding: 0;" aria-label="Volver arriba">↑</button>
+
+    <div id="toast-container"></div>
+
+    <script>
+        // === CORE SYSTEMS ===
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            // 1. LOADER
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                loader.style.opacity = '0';
+                setTimeout(() => loader.style.display = 'none', 500);
+            }, 2000);
+
+            // 2. THEME MANAGEMENT (LocalStorage)
+            const themeBtn = document.getElementById('theme-btn');
+            const body = document.body;
+            const savedTheme = localStorage.getItem('fenix_theme') || 'dark';
+            body.className = savedTheme;
+            themeBtn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+            themeBtn.addEventListener('click', () => {
+                const isDark = body.classList.contains('dark');
+                body.className = isDark ? 'light' : 'dark';
+                themeBtn.textContent = isDark ? '🌙' : '☀️';
+                localStorage.setItem('fenix_theme', isDark ? 'light' : 'dark');
+                showToast('Tema actualizado correctamente.', 'success');
+            });
+
+            // 3. CUSTOM CURSOR
+            const cursorDot = document.querySelector('.cursor-dot');
+            const cursorOutline = document.querySelector('.cursor-outline');
+            const hoverTargets = document.querySelectorAll('.hover-target, a, button');
+
+            window.addEventListener('mousemove', (e) => {
+                const posX = e.clientX;
+                const posY = e.clientY;
+                cursorDot.style.left = `${posX}px`;
+                cursorDot.style.top = `${posY}px`;
+                // Suavizado del contorno
+                cursorOutline.animate({
+                    left: `${posX}px`,
+                    top: `${posY}px`
+                }, { duration: 500, fill: "forwards" });
+            });
+
+            hoverTargets.forEach(target => {
+                target.addEventListener('mouseenter', () => body.classList.add('cursor-hover'));
+                target.addEventListener('mouseleave', () => body.classList.remove('cursor-hover'));
+            });
+
+            // 4. SCROLL PROGRESS & HEADER & BACK TO TOP
+            const progressBar = document.getElementById('reading-progress');
+            const header = document.getElementById('header');
+            const backToTop = document.getElementById('back-to-top');
+
+            window.addEventListener('scroll', () => {
+                // Progreso
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                progressBar.style.width = `${(winScroll / height) * 100}%`;
+
+                // Header Blur
+                if (winScroll > 50) header.classList.add('scrolled');
+                else header.classList.remove('scrolled');
+
+                // Back to top
+                if (winScroll > 500) backToTop.style.display = 'block';
+                else backToTop.style.display = 'none';
+            });
+
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // 5. INTERSECTION OBSERVER (Animaciones al scroll)
+            const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Counters logic
+                        const counters = entry.target.querySelectorAll('.counter');
+                        counters.forEach(counter => {
+                            const target = +counter.getAttribute('data-target');
+                            const count = +counter.innerText;
+                            const inc = target / 50;
+                            if (count < target) {
+                                counter.innerText = Math.ceil(count + inc);
+                                setTimeout(() => {
+                                    entry.target.classList.remove('active');
+                                    entry.target.classList.add('active'); // trigger re-render hack
+                                }, 20);
+                            } else {
+                                counter.innerText = target;
+                            }
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+            // 6. FAQ ACCORDION
+            document.querySelectorAll('.faq-question').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const item = btn.parentElement;
+                    item.classList.toggle('active');
+                    btn.querySelector('span').textContent = item.classList.contains('active') ? '-' : '+';
+                });
+            });
+
+            // 7. TOAST NOTIFICATIONS
+            window.showToast = function(msg, type = 'success') {
+                const container = document.getElementById('toast-container');
+                const toast = document.createElement('div');
+                toast.className = `toast ${type}`;
+                toast.innerHTML = `${type === 'success' ? '✓' : '⚠'} ${msg}`;
+                container.appendChild(toast);
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                    setTimeout(() => toast.remove(), 300);
+                }, 3000);
+            }
+
+            // 8. LOCAL COMMENTS SYSTEM (CRUD con LocalStorage)
+            const commentForm = document.getElementById('comment-form');
+            const commentList = document.getElementById('comment-list');
+            const STORAGE_KEY = 'fenix_comments_db';
+
+            // Datos iniciales si está vacío
+            const initialComments = [
+                { id: 1, name: "David M.", email: "david@test.com", text: "Excelente arquitectura de la web. ¿Las animaciones están hechas solo con CSS?", date: new Date().getTime() - 100000, likes: 12 },
+                { id: 2, name: "Ing. Torres", email: "torres@test.com", text: "El diagrama de flujo del protocolo remoto es sumamente claro. Estándar corporativo.", date: new Date().getTime() - 80000, likes: 5 },
+                { id: 3, name: "Maria L.", email: "maria@test.com", text: "Me encantó la implementación del modo oscuro con LocalStorage. Muy fluido.", date: new Date().getTime() - 50000, likes: 8 },
+                { id: 4, name: "Pedro Dev", email: "pedro@test.com", text: "La tabla comparativa de software remoto nos ayudó a decidirnos por RustDesk. ¡Gracias!", date: new Date().getTime() - 30000, likes: 3 },
+                { id: 5, name: "Laura S.", email: "laura@test.com", text: "Increíble nivel de detalle en las pólizas de SLA y NDA. Definitivamente contrataré sus servicios.", date: new Date().getTime() - 10000, likes: 25 }
+            ];
+
+            let comments = JSON.parse(localStorage.getItem(STORAGE_KEY));
+            if (!comments) {
+                comments = initialComments;
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(comments));
+            }
+
+            function renderComments() {
+                commentList.innerHTML = '';
+                comments.sort((a,b) => b.date - a.date).forEach(c => {
+                    const div = document.createElement('div');
+                    div.className = 'comment-item';
+                    const initial = c.name.charAt(0).toUpperCase();
+                    const d = new Date(c.date).toLocaleDateString();
+                    div.innerHTML = `
+                        <div class="comment-avatar">${initial}</div>
+                        <div style="flex-grow: 1;">
+                            <div style="display:flex; justify-content: space-between;">
+                                <strong>${c.name}</strong>
+                                <span style="font-size: 0.8rem; color: var(--text-dark);">${d}</span>
+                            </div>
+                            <p style="margin-top: 0.5rem; font-size: 0.95rem;">${c.text}</p>
+                            <div class="comment-actions">
+                                <button onclick="likeComment(${c.id})">👍 ${c.likes}</button>
+                                <button onclick="deleteComment(${c.id})">🗑️ Eliminar</button>
+                            </div>
+                        </div>
+                    `;
+                    commentList.appendChild(div);
+                });
+            }
+
+            commentForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('c-name').value.trim();
+                const email = document.getElementById('c-email').value.trim();
+                const text = document.getElementById('c-text').value.trim();
+
+                if(name && email && text) {
+                    const newComment = {
+                        id: Date.now(),
+                        name, email, text,
+                        date: Date.now(),
+                        likes: 0
+                    };
+                    comments.push(newComment);
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(comments));
+                    renderComments();
+                    commentForm.reset();
+                    showToast('Comentario publicado con éxito.', 'success');
+                } else {
+                    showToast('Por favor, completa todos los campos.', 'error');
+                }
+            });
+
+            window.likeComment = function(id) {
+                const comment = comments.find(c => c.id === id);
+                if(comment) {
+                    comment.likes++;
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(comments));
+                    renderComments();
+                }
+            }
+
+            window.deleteComment = function(id) {
+                if(confirm('¿Seguro que deseas eliminar este comentario?')) {
+                    comments = comments.filter(c => c.id !== id);
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(comments));
+                    renderComments();
+                    showToast('Comentario eliminado.', 'success');
+                }
+            }
+
+            // Init
+            renderComments();
+        });
+    </script>
+</body>
+</html>
